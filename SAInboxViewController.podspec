@@ -17,20 +17,19 @@ Pod::Spec.new do |s|
                        * Markdown format.
                        * Don't worry about the indent, we strip it!
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/SAInboxViewController"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/szk-atmosphere/SAInboxViewController"
   s.license          = 'MIT'
-  s.author           = { "suzuki-taiki" => "suzuki_taiki@cyberagent.co.jp" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/SAInboxViewController.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "Taiki Suzuki" => "s1180183@gmail.com" }
+  s.source           = { :git => "https://github.com/szk-atmosphere/SAInboxViewController.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/SzkAtmosphere'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'SAInboxViewController' => ['Pod/Assets/*.png']
-  }
+  s.source_files = 'SAInboxViewController/*.{swift}'
+  # s.resource_bundles = {
+  #  'SAInboxViewController' => ['Pod/Assets/*.png']
+  #}
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

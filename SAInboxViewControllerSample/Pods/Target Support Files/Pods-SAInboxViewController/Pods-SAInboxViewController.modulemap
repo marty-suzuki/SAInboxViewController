@@ -1,0 +1,6 @@
+framework module SAInboxViewController {
+  umbrella header "Pods-SAInboxViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,14 @@
+PODS:
+  - SAInboxViewController (0.1.0)
+
+DEPENDENCIES:
+  - SAInboxViewController (from `../`)
+
+EXTERNAL SOURCES:
+  SAInboxViewController:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SAInboxViewController: 3eb7552ef77df057f24aff968a5640dffa2fdfbe
+
+COCOAPODS: 0.36.1

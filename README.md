@@ -1,9 +1,15 @@
 # SAInboxViewController
 
-[![CI Status](http://img.shields.io/travis/suzuki-taiki/SAInboxViewController.svg?style=flat)](https://travis-ci.org/suzuki-taiki/SAInboxViewController)
+[![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
+)](https://developer.apple.com/iphone/index.action)
+[![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
+)](https://developer.apple.com/swift)
 [![Version](https://img.shields.io/cocoapods/v/SAInboxViewController.svg?style=flat)](http://cocoapods.org/pods/SAInboxViewController)
 [![License](https://img.shields.io/cocoapods/l/SAInboxViewController.svg?style=flat)](http://cocoapods.org/pods/SAInboxViewController)
-[![Platform](https://img.shields.io/cocoapods/p/SAInboxViewController.svg?style=flat)](http://cocoapods.org/pods/SAInboxViewController)
+
+![](./SampleImage/sample.gif)
+
+SAInboxViewController realizes Inbox like view transitioning.
 
 ## Usage
 

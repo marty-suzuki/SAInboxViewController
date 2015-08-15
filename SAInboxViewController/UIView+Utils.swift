@@ -2,8 +2,8 @@
 //  UIView+Utils.swift
 //  SAInboxViewController
 //
-//  Created by 鈴木大貴 on 2015/08/11.
-//
+//  Created by Taiki Suzuki on 2015/08/15.
+//  Copyright (c) 2015年 Taiki Suzuki. All rights reserved.
 //
 
 import UIKit

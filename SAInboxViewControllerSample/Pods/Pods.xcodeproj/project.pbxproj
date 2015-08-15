@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		156A3504050EFA80D7856BA6 /* SAInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B50A4929CB4A836CE8B294 /* SAInboxViewController.swift */; };
 		1A158AA1968614B32ADC56B2 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC0BE3A39306BFE5C665D4E /* Pods-dummy.m */; };
+		37E649191B7ED01000FD54F7 /* SAInboxDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E649101B79E4DE00FD54F7 /* SAInboxDetailViewController.swift */; };
+		37E6491A1B7ED01400FD54F7 /* SAInboxAnimatedTransitioningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E6490E1B79E41F00FD54F7 /* SAInboxAnimatedTransitioningController.swift */; };
+		37E6491B1B7ED01800FD54F7 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E6490C1B79E14900FD54F7 /* UIView+Utils.swift */; };
+		37E6491C1B7ED01C00FD54F7 /* SAInboxTransitioningContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E6490A1B79E0FD00FD54F7 /* SAInboxTransitioningContainerView.swift */; };
 		674B0652B7D321AA1FCF48E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA93EA963AB61289E83080E /* Foundation.framework */; };
 		6A7BCDAE8D50291C5D0170B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA93EA963AB61289E83080E /* Foundation.framework */; };
 		C8B73CED40EE782A424604D5 /* Pods-SAInboxViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0896BB8E5A8D1A614D16176E /* Pods-SAInboxViewController-dummy.m */; };
@@ -31,6 +35,10 @@
 		1675D9CD1EC52C2C5440CDAB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2194DF4CAC02441BD5AF7739 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
 		23315D8AA9CE6117F7B84573 /* Pods-SAInboxViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SAInboxViewController-prefix.pch"; sourceTree = "<group>"; };
+		37E6490A1B79E0FD00FD54F7 /* SAInboxTransitioningContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAInboxTransitioningContainerView.swift; sourceTree = "<group>"; };
+		37E6490C1B79E14900FD54F7 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		37E6490E1B79E41F00FD54F7 /* SAInboxAnimatedTransitioningController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAInboxAnimatedTransitioningController.swift; sourceTree = "<group>"; };
+		37E649101B79E4DE00FD54F7 /* SAInboxDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAInboxDetailViewController.swift; sourceTree = "<group>"; };
 		38321A9B6DFA1805DDB8D1CD /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
 		3D4D67F36929FC0C7E2C08FE /* Pods-SAInboxViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SAInboxViewController-umbrella.h"; sourceTree = "<group>"; };
 		4C8B79957424205CA78855AA /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
@@ -163,7 +171,11 @@
 		E04BA16D5C3B0ECBCC8C8FB2 /* SAInboxViewController */ = {
 			isa = PBXGroup;
 			children = (
+				37E6490E1B79E41F00FD54F7 /* SAInboxAnimatedTransitioningController.swift */,
+				37E649101B79E4DE00FD54F7 /* SAInboxDetailViewController.swift */,
+				37E6490A1B79E0FD00FD54F7 /* SAInboxTransitioningContainerView.swift */,
 				91B50A4929CB4A836CE8B294 /* SAInboxViewController.swift */,
+				37E6490C1B79E14900FD54F7 /* UIView+Utils.swift */,
 			);
 			path = SAInboxViewController;
 			sourceTree = "<group>";
@@ -273,7 +285,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8B73CED40EE782A424604D5 /* Pods-SAInboxViewController-dummy.m in Sources */,
+				37E649191B7ED01000FD54F7 /* SAInboxDetailViewController.swift in Sources */,
+				37E6491B1B7ED01800FD54F7 /* UIView+Utils.swift in Sources */,
+				37E6491C1B7ED01C00FD54F7 /* SAInboxTransitioningContainerView.swift in Sources */,
 				156A3504050EFA80D7856BA6 /* SAInboxViewController.swift in Sources */,
+				37E6491A1B7ED01400FD54F7 /* SAInboxAnimatedTransitioningController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +309,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 99C52F7628383DF672C7829F /* Pods.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -322,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7796C3F62CFCB38DCDD4671C /* Pods.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

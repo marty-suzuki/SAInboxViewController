@@ -1,16 +1,18 @@
 //
-//  TimelineViewCell.swift
-//  SAHistoryNavigationViewControllerSample
+//  FeedViewCell.swift
+//  SAInboxViewControllerSample
 //
-//  Created by 鈴木大貴 on 2015/04/01.
-//  Copyright (c) 2015年 &#37428;&#26408;&#22823;&#36020;. All rights reserved.
+//  Created by Taiki Suzuki on 2015/08/15.
+//  Copyright (c) 2015年 Taiki Suzuki. All rights reserved.
 //
 
 import UIKit
 import QuartzCore
 
-class TimelineViewCell: UITableViewCell {
+class FeedViewCell: UITableViewCell {
 
+    static let kCellIdentifier = "FeedViewCell"
+    
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var mainTextLabel: UILabel!

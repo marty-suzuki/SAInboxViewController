@@ -2,11 +2,12 @@
 //  AppDelegate.swift
 //  SAInboxViewControllerSample
 //
-//  Created by 鈴木大貴 on 2015/08/08.
-//  Copyright (c) 2015年 鈴木大貴. All rights reserved.
+//  Created by Taiki Suzuki on 2015/08/15.
+//  Copyright (c) 2015年 Taiki Suzuki. All rights reserved.
 //
 
 import UIKit
+import SAInboxViewController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        SAInboxViewController.appearance().barTintColor = UIColor(red: 70/255, green: 136/255, blue: 241/255, alpha: 1)
+        SAInboxViewController.appearance().tintColor = .whiteColor()
+        SAInboxViewController.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+        (window?.rootViewController as? UINavigationController)?.delegate = self
+        
         return true
     }
 
@@ -40,7 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
+extension AppDelegate: UINavigationControllerDelegate {
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return SAInboxAnimatedTransitioningController.sharedInstance().setOperation(operation)
+    }
+}

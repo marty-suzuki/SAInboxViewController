@@ -1,0 +1,21 @@
+{
+  "name": "SAInboxViewController",
+  "version": "0.1.0",
+  "summary": "A short description of SAInboxViewController.",
+  "description": "                       An optional longer description of SAInboxViewController\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
+  "homepage": "https://github.com/szk-atmosphere/SAInboxViewController",
+  "license": "MIT",
+  "authors": {
+    "Taiki Suzuki": "s1180183@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/szk-atmosphere/SAInboxViewController.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://twitter.com/SzkAtmosphere",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "SAInboxViewController/*.{swift}"
+}

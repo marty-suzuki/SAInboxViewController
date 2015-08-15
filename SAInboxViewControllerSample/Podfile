@@ -1,0 +1,3 @@
+platform :ios, "8.0"
+pod 'SAInboxViewController', :path => '../'
+use_frameworks!

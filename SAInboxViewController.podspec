@@ -10,13 +10,7 @@
 Pod::Spec.new do |s|
   s.name             = "SAInboxViewController"
   s.version          = "0.1.0"
-  s.summary          = "A short description of SAInboxViewController."
-  s.description      = <<-DESC
-                       An optional longer description of SAInboxViewController
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
+  s.summary          = "SAInboxViewController realizes Inbox like view transitioning."
   s.homepage         = "https://github.com/szk-atmosphere/SAInboxViewController"
   s.license          = 'MIT'
   s.author           = { "Taiki Suzuki" => "s1180183@gmail.com" }

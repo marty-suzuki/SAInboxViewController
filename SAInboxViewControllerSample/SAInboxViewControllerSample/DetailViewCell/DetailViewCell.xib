@@ -14,48 +14,103 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbe-7z-gA0">
-                        <rect key="frame" x="120" y="30" width="460" height="80"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Sample text." translatesAutoresizingMaskIntoConstraints="NO" id="6Ci-81-PKZ">
+                        <rect key="frame" x="20" y="20" width="560" height="60"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="80" id="jiO-2m-7FZ"/>
+                            <constraint firstAttribute="height" constant="60" id="eC5-Ri-fqh"/>
                         </constraints>
+                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="20"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9P-2d-HEj">
+                        <rect key="frame" x="0.0" y="80" width="600" height="0.5"/>
+                        <color key="backgroundColor" red="0.72941176470000002" green="0.74509803919999995" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="u84-JL-n8a"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbe-7z-gA0">
+                        <rect key="frame" x="90" y="95" width="490" height="50"/>
                         <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="20"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDH-VA-zO4">
-                        <rect key="frame" x="20" y="30" width="80" height="80"/>
+                        <rect key="frame" x="20" y="95" width="50" height="50"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="QDH-VA-zO4" secondAttribute="height" multiplier="1:1" id="LGy-k6-Cca"/>
-                            <constraint firstAttribute="height" constant="80" id="OAe-Kh-T1q"/>
-                            <constraint firstAttribute="width" constant="80" id="b6M-yZ-0mT"/>
+                            <constraint firstAttribute="width" secondItem="QDH-VA-zO4" secondAttribute="height" multiplier="1:1" id="Vdl-Jd-oIa"/>
+                            <constraint firstAttribute="width" constant="50" id="dqy-Lz-Lk8"/>
                         </constraints>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Sample text." translatesAutoresizingMaskIntoConstraints="NO" id="6Ci-81-PKZ">
-                        <rect key="frame" x="20" y="130" width="560" height="450"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BzV-A5-jwB">
+                        <rect key="frame" x="0.0" y="160" width="600" height="0.5"/>
+                        <color key="backgroundColor" red="0.72941176470000002" green="0.74509803919999995" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="J4w-ox-kpp"/>
+                        </constraints>
+                    </view>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFa-0r-ws2">
+                        <rect key="frame" x="10" y="171" width="580" height="419"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="20"/>
+                        <mutableString key="text">SAInboxViewController is UIViewController Animated transitioning which inspired by "Inbox by google" view transitioning. 
+
+This link:
+https://github.com/szk-atmosphere/SAInboxViewController
+
+This is supported 4 transitioning way.
+1. Scrolling up to begining of contents and back to previous ViewController
+2. Scrolling down to end of contents and back to previous ViewController
+3. Dragging HeaderView and back to previous ViewController (not influenced contents position)
+4. Left edge swiping and back to previous ViewController
+
+If you want to install from CocoaPods, SAHistoryNavigationViewController is available through CocoaPods. If you have cocoapods 0.36.1 or greater, you can install it, simply add the following line to your Podfile
+pod "SAInboxViewController"
+
+If you want to support iOS7 in your app, please install manually.
+
+There are two ViewControllers to realize Inbox transitioning. Please extend those ViewControllers.
+
+1. SAInboxViewController... using as rootViewController
+2.  SAInboxDetailViewController... using as second ViewController
+
+
+SAInboxViewController is available under the MIT license.
+
+Thank you</mutableString>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="QDH-VA-zO4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="3jG-rS-Ijn"/>
-                    <constraint firstItem="6Ci-81-PKZ" firstAttribute="top" secondItem="QDH-VA-zO4" secondAttribute="bottom" constant="20" id="3ki-ZX-mKb"/>
-                    <constraint firstAttribute="trailing" secondItem="nbe-7z-gA0" secondAttribute="trailing" constant="20" id="7VG-Nx-oA8"/>
-                    <constraint firstItem="QDH-VA-zO4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="K3w-Yl-g2B"/>
-                    <constraint firstItem="nbe-7z-gA0" firstAttribute="leading" secondItem="QDH-VA-zO4" secondAttribute="trailing" constant="20" id="Nko-6a-C5N"/>
-                    <constraint firstItem="nbe-7z-gA0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="SZt-Tw-DyO"/>
-                    <constraint firstItem="6Ci-81-PKZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="TJY-6i-tee"/>
-                    <constraint firstAttribute="trailing" secondItem="6Ci-81-PKZ" secondAttribute="trailing" constant="20" id="vQI-2r-Zg5"/>
-                    <constraint firstAttribute="bottom" secondItem="6Ci-81-PKZ" secondAttribute="bottom" constant="19.5" id="wlE-8f-0kb"/>
+                    <constraint firstItem="w9P-2d-HEj" firstAttribute="top" secondItem="6Ci-81-PKZ" secondAttribute="bottom" id="1af-rn-Tlo"/>
+                    <constraint firstItem="BzV-A5-jwB" firstAttribute="top" secondItem="QDH-VA-zO4" secondAttribute="bottom" constant="15" id="1wz-G2-zbW"/>
+                    <constraint firstItem="qFa-0r-ws2" firstAttribute="top" secondItem="BzV-A5-jwB" secondAttribute="bottom" constant="10" id="5Fn-LK-Six"/>
+                    <constraint firstAttribute="trailing" secondItem="nbe-7z-gA0" secondAttribute="trailing" constant="20" id="Gka-GJ-Opi"/>
+                    <constraint firstAttribute="bottom" secondItem="qFa-0r-ws2" secondAttribute="bottom" constant="9.5" id="HN8-0X-Poa"/>
+                    <constraint firstItem="w9P-2d-HEj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Lev-E8-49a"/>
+                    <constraint firstItem="QDH-VA-zO4" firstAttribute="top" secondItem="w9P-2d-HEj" secondAttribute="bottom" constant="15" id="Lfd-Em-I3f"/>
+                    <constraint firstItem="6Ci-81-PKZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="NaT-59-3iu"/>
+                    <constraint firstItem="nbe-7z-gA0" firstAttribute="leading" secondItem="QDH-VA-zO4" secondAttribute="trailing" constant="20" id="Q6j-vG-kap"/>
+                    <constraint firstAttribute="trailing" secondItem="w9P-2d-HEj" secondAttribute="trailing" id="SPe-Hf-kWO"/>
+                    <constraint firstAttribute="trailing" secondItem="qFa-0r-ws2" secondAttribute="trailing" constant="10" id="VNh-Pj-YQv"/>
+                    <constraint firstItem="qFa-0r-ws2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WSe-1n-kZn"/>
+                    <constraint firstItem="QDH-VA-zO4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="bH9-qf-5gE"/>
+                    <constraint firstItem="BzV-A5-jwB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="brC-dE-zDw"/>
+                    <constraint firstItem="6Ci-81-PKZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="dGZ-9m-vJO"/>
+                    <constraint firstAttribute="trailing" secondItem="BzV-A5-jwB" secondAttribute="trailing" id="fbf-c5-1A4"/>
+                    <constraint firstItem="QDH-VA-zO4" firstAttribute="height" secondItem="nbe-7z-gA0" secondAttribute="height" id="luB-jT-iFX"/>
+                    <constraint firstItem="nbe-7z-gA0" firstAttribute="top" secondItem="w9P-2d-HEj" secondAttribute="bottom" constant="15" id="rW3-dK-trx"/>
+                    <constraint firstAttribute="trailing" secondItem="6Ci-81-PKZ" secondAttribute="trailing" constant="20" id="xQF-ZI-djE"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="iconButton" destination="QDH-VA-zO4" id="JZf-Ca-lgx"/>
+                <outlet property="mainTextView" destination="qFa-0r-ws2" id="3Dk-2Q-3Ff"/>
                 <outlet property="textView" destination="6Ci-81-PKZ" id="8Gy-Nu-kJp"/>
                 <outlet property="usernameLabel" destination="nbe-7z-gA0" id="YvB-bS-6mJ"/>
             </connections>

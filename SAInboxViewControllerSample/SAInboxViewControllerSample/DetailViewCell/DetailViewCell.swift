@@ -15,12 +15,24 @@ class DetailViewCell: UITableViewCell {
     @IBOutlet weak var iconButton: UIButton!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var mainTextView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        iconButton.layer.cornerRadius = 10
+        
         iconButton.layer.masksToBounds = true
+        selectionStyle = .None
+        textView.contentInset = UIEdgeInsets(top: -9, left: -4, bottom: 0, right: 0)
+        textView.scrollEnabled = false
+        mainTextView.dataDetectorTypes = .Link
+        mainTextView.editable = false
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        iconButton.layer.cornerRadius = CGRectGetWidth(iconButton.frame) / 2
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

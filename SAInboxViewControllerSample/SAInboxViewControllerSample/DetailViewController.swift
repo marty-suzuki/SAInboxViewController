@@ -29,6 +29,8 @@ class DetailViewController: SAInboxDetailViewController {
         
         tableView.separatorInset = UIEdgeInsetsZero
         tableView.layoutMargins = UIEdgeInsetsZero
+        
+        tableView.showsVerticalScrollIndicator = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,6 +59,6 @@ extension DetailViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return CGRectGetHeight(tableView.frame)
+        return CGRectGetHeight(tableView.frame) * 1.5
     }
 }

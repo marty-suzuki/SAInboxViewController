@@ -20,8 +20,12 @@ class FeedViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        iconImageView.layer.cornerRadius = 10
         iconImageView.layer.masksToBounds = true
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        iconImageView.layer.cornerRadius = CGRectGetWidth(iconImageView.frame) / 2
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

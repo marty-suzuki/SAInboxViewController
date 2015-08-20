@@ -78,6 +78,34 @@ func navigationController(navigationController: UINavigationController, animatio
 }
 ```
 
+## Customize
+You can change HeaderView `barTintColor`, `tintColor` and `titleTextAttributes`.  
+There are 2 ways to change HeaderView Appearance.
+
+#### Application Base Appearance
+SAInboxViewController class has Appearance property
+
+```swift
+SAInboxViewController.appearance.barTintColor = .blackColor()
+SAInboxViewController.appearance.tintColor = .whiteColor()
+SAInboxViewController.appearance.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+```
+
+#### ViewController Base Appearance
+SAInboxViewController instance has Appearance property.
+
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    appearance.barTintColor = .whiteColor()
+    appearance.tintColor = .blackColor()
+    appearance.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor()]
+    
+    //Do not forget to set true
+    enabledViewControllerBasedAppearance = true
+}
+```
+
 ## Requirements
 
 - Xcode 6.4 or greater

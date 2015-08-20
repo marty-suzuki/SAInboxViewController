@@ -31,6 +31,12 @@ class DetailViewController: SAInboxDetailViewController {
         tableView.layoutMargins = UIEdgeInsetsZero
         
         tableView.showsVerticalScrollIndicator = false
+        
+        let color = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        appearance.barTintColor = .whiteColor()
+        appearance.tintColor = color
+        appearance.titleTextAttributes = [NSForegroundColorAttributeName : color]
+        enabledViewControllerBasedAppearance = true
     }
     
     override func didReceiveMemoryWarning() {

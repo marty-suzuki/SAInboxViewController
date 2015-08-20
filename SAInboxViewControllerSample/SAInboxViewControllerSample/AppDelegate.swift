@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        SAInboxViewController.appearance().barTintColor = UIColor(red: 70/255, green: 136/255, blue: 241/255, alpha: 1)
-        SAInboxViewController.appearance().tintColor = .whiteColor()
-        SAInboxViewController.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        SAInboxViewController.appearance.barTintColor = UIColor(red: 70/255, green: 136/255, blue: 241/255, alpha: 1)
+        SAInboxViewController.appearance.tintColor = .whiteColor()
+        SAInboxViewController.appearance.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
         (window?.rootViewController as? UINavigationController)?.delegate = self
@@ -52,6 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UINavigationControllerDelegate {
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SAInboxAnimatedTransitioningController.sharedInstance().setOperation(operation)
+        return SAInboxAnimatedTransitioningController.sharedInstance.setOperation(operation)
     }
 }

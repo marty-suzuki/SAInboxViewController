@@ -78,13 +78,8 @@ public class SAInboxViewController: UIViewController {
     }
     
     //MARK: - Staitc properties
-    static private let _appearance = Appearance()
-    static private let kHeaderViewHeight: CGFloat = 64
-    
-    //MARK: - Static methods
-    public static func appearance() -> Appearance {
-        return _appearance
-    }
+    public static let appearance = Appearance()
+    private static let kHeaderViewHeight: CGFloat = 64
     
     //MARK: - Instance properties
     public let headerView = HeaderView()
@@ -97,6 +92,8 @@ public class SAInboxViewController: UIViewController {
         }
     }    
     private var headerViewHeightConstraint: NSLayoutConstraint?
+    public var enabledViewControllerBasedAppearance :Bool = false
+    public let appearance = Appearance()
 }
 
 //MARK: - Life cycle
@@ -112,7 +109,7 @@ public extension SAInboxViewController {
             }
         }
         
-        headerView.applyAppearance(SAInboxViewController.appearance())
+        headerView.applyAppearance(SAInboxViewController.appearance)
         headerView.setTranslatesAutoresizingMaskIntoConstraints(false)
         view.addSubview(headerView)
         let headerViewHeightConstraint = NSLayoutConstraint(item: headerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: 64)
@@ -132,6 +129,14 @@ public extension SAInboxViewController {
             NSLayoutConstraint(item: tableView, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: tableView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0)
         ])
+    }
+    
+    public override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if enabledViewControllerBasedAppearance {
+            headerView.applyAppearance(appearance)
+        }
     }
     
     public override func viewDidAppear(animated: Bool) {

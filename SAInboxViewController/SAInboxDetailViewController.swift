@@ -62,7 +62,7 @@ public extension SAInboxDetailViewController {
     
     override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        view.insertSubview(SAInboxAnimatedTransitioningController.sharedInstance().transitioningContainerView, belowSubview: tableView)
+        view.insertSubview(SAInboxAnimatedTransitioningController.sharedInstance.transitioningContainerView, belowSubview: tableView)
         setupAlphaView()
         view.bringSubviewToFront(headerView)
     }
@@ -110,7 +110,7 @@ extension SAInboxDetailViewController {
         
         switch gesture.state {
             case .Began:
-                SAInboxAnimatedTransitioningController.sharedInstance().transitioningType = .SwipePop
+                SAInboxAnimatedTransitioningController.sharedInstance.transitioningType = .SwipePop
                 
             case .Changed:
                 
@@ -157,7 +157,7 @@ extension SAInboxDetailViewController {
         
         switch gesture.state {
             case .Began:
-                SAInboxAnimatedTransitioningController.sharedInstance().transitioningType = .HeaderPop
+                SAInboxAnimatedTransitioningController.sharedInstance.transitioningType = .HeaderPop
                 
             case .Changed:
                 var position = translation.y
@@ -178,7 +178,7 @@ extension SAInboxDetailViewController {
                 }
                 tableView.frame.origin.y = tableViewPosition
                 
-                SAInboxAnimatedTransitioningController.sharedInstance().transitioningContainerView.upperMoveToValue(rudderBanding)
+                SAInboxAnimatedTransitioningController.sharedInstance.transitioningContainerView.upperMoveToValue(rudderBanding)
                 
                 alphaView.alpha = 1 - min(1, (rudderBanding / 180))
                 
@@ -191,7 +191,7 @@ extension SAInboxDetailViewController {
                     UIView.animateWithDuration(0.25) {
                         self.headerView.frame.origin = self.defaultHeaderPosition
                         self.tableView.frame.origin = self.defaultTableViewPosition
-                        SAInboxAnimatedTransitioningController.sharedInstance().transitioningContainerView.upperMoveToValue(0)
+                        SAInboxAnimatedTransitioningController.sharedInstance.transitioningContainerView.upperMoveToValue(0)
                         self.alphaView.alpha = 1
                     }
                 }
@@ -226,7 +226,7 @@ extension SAInboxDetailViewController: UITableViewDelegate {
         }
         
         let standardValue = SAInboxDetailViewController.kStandardValue
-        let transitioningController = SAInboxAnimatedTransitioningController.sharedInstance()
+        let transitioningController = SAInboxAnimatedTransitioningController.sharedInstance
         let yOffset = scrollView.contentOffset.y
         let value = yOffset - (scrollView.contentSize.height - scrollView.bounds.size.height)
         let transitioningContainerView = transitioningController.transitioningContainerView

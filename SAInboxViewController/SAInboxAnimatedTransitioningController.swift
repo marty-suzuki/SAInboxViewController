@@ -15,18 +15,13 @@ public class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerA
     }
     
     //MARK: - Static Properties
-    static private let _sharedInstance = SAInboxAnimatedTransitioningController()
-    
-    //MARK: - Static Methods
-    public class func sharedInstance() -> SAInboxAnimatedTransitioningController {
-        return _sharedInstance
-    }
+    public static let sharedInstance = SAInboxAnimatedTransitioningController()
     
     //MARK: - Instance Properties
     let transitioningContainerView = SAInboxTransitioningContainerView()
     var transitioningType: TrantioningType = .Push
     var selectedCell: UITableViewCell?
-    private var _operation: UINavigationControllerOperation?
+    private var operation: UINavigationControllerOperation?
 }
 
 //MARK: - Public Methods
@@ -44,7 +39,7 @@ public extension SAInboxAnimatedTransitioningController {
         contentView.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         
         let duration = transitionDuration(transitionContext)
-        if let toViewController = toViewController, fromViewController = fromViewController, operation = _operation {
+        if let toViewController = toViewController, fromViewController = fromViewController, operation = operation {
             switch (operation) {
                 case .Push:
                     pushTransition(duration, transitionContext: transitionContext, transitioningType: transitioningType, transitioningContainerView: transitioningContainerView, contentView: contentView, toViewController: toViewController, fromViewController: fromViewController)
@@ -60,7 +55,7 @@ public extension SAInboxAnimatedTransitioningController {
     }
     
     public func setOperation(operation: UINavigationControllerOperation) -> SAInboxAnimatedTransitioningController {
-        _operation = operation
+        self.operation = operation
         return self
     }
     

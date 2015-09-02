@@ -27,6 +27,7 @@ class DetailViewCell: UITableViewCell {
         textView.scrollEnabled = false
         mainTextView.dataDetectorTypes = .Link
         mainTextView.editable = false
+        mainTextView.scrollEnabled = false
     }
     
     override func layoutSubviews() {

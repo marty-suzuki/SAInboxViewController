@@ -11,6 +11,8 @@
 
 SAInboxViewController realizes Inbox like view transitioning.
 
+You can launch sample project on web browser from [here](https://appetize.io/app/gxu9drpm7cqbe60mjqf2nv59t4?device=iphone5s&scale=75&orientation=portrait).
+
 ## Features
 
 - [x] Inbox like view transitioning
@@ -65,7 +67,7 @@ func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSInde
     let viewController = SAInboxDetailViewController()
     if let cell = tableView.cellForRowAtIndexPath(indexPath), cells = tableView.visibleCells() as? [UITableViewCell] {
         SAInboxAnimatedTransitioningController.sharedInstance().configureCotainerView(view, cell: cell, cells: cells, headerImage: headerView.screenshotImage())
-    }        
+    }
     navigationController?.pushViewController(viewController, animated: true)
 }
 ```
@@ -100,7 +102,7 @@ override func viewDidLoad() {
     appearance.barTintColor = .whiteColor()
     appearance.tintColor = .blackColor()
     appearance.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor()]
-    
+
     //Do not forget to set true
     enabledViewControllerBasedAppearance = true
 }

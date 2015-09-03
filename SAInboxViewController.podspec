@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SAInboxViewController"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "UIViewController subclass inspired by \"Inbox by google\" animated transitioning."
   s.homepage         = "https://github.com/szk-atmosphere/SAInboxViewController"
   s.license          = 'MIT'

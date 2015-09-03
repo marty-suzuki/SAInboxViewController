@@ -38,6 +38,7 @@ class SAInboxTransitioningContainerView: UIView {
             return headerImageView.image
         }
     }
+    var headerViewOrigin: CGPoint = CGPointZero
     
     init() {
         super.init(frame: CGRectZero)

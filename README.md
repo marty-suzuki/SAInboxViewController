@@ -20,6 +20,8 @@ You can launch sample project on web browser from [here](https://appetize.io/app
 - [x] Scrolling down to end of contents transitioning
 - [x] Header dragging transitioning
 - [x] Left edge swiping transitioning
+- [x] HeaderView hide animation
+- [ ] Change StatusBar color with scrolling
 
 ## Installation
 

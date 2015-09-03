@@ -58,6 +58,8 @@ public extension SAInboxDetailViewController {
         let swipePanGesture = UIPanGestureRecognizer(target: self, action: "handleSwipePanGesture:")
         view.addGestureRecognizer(swipePanGesture)
         self.swipePanGesture = swipePanGesture
+        
+        shouldHideHeaderView = false
     }
     
     override public func viewDidAppear(animated: Bool) {
@@ -219,7 +221,9 @@ extension SAInboxDetailViewController: UITableViewDelegate {
         }
     }
     
-    public func scrollViewDidScroll(scrollView: UIScrollView) {
+    public override func scrollViewDidScroll(scrollView: UIScrollView) {
+        super.scrollViewDidScroll(scrollView)
+        
         if stopScrolling {
             scrollView.setContentOffset(scrollView.contentOffset, animated: false)
             return

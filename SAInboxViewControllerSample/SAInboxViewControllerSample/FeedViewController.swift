@@ -90,7 +90,7 @@ extension FeedViewController: UITableViewDelegate {
         }
         
         if let cell = tableView.cellForRowAtIndexPath(indexPath), cells = tableView.visibleCells() as? [UITableViewCell] {
-            SAInboxAnimatedTransitioningController.sharedInstance.configureCotainerView(view, cell: cell, cells: cells, headerImage: headerView.screenshotImage())
+            SAInboxAnimatedTransitioningController.sharedInstance.configureCotainerView(self, cell: cell, cells: cells, headerImage: headerView.screenshotImage())
         }
         
         let content = contents[indexPath.row]

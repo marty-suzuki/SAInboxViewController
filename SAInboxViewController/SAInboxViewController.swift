@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc public protocol SAInboxViewControllerDelegate: NSObjectProtocol {
+    optional func inboxViewControllerShouldChangeStatusBarColor(viewController: SAInboxViewController, isScrollingDirectionUp: Bool)
+}
+
 public class SAInboxViewController: UIViewController {
     
     //MARK: - Inner classes
@@ -96,6 +100,9 @@ public class SAInboxViewController: UIViewController {
     private var headerViewHeightConstraint: NSLayoutConstraint?
     public var enabledViewControllerBasedAppearance :Bool = false
     public let appearance = Appearance()
+    public weak var delegate: SAInboxViewControllerDelegate?
+    private var headerViewTopSpaceConstraint: NSLayoutConstraint?
+    var shouldHideHeaderView = true
 }
 
 //MARK: - Life cycle
@@ -115,13 +122,15 @@ public extension SAInboxViewController {
         headerView.setTranslatesAutoresizingMaskIntoConstraints(false)
         view.addSubview(headerView)
         let headerViewHeightConstraint = NSLayoutConstraint(item: headerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: SAInboxViewController.HeaderViewHeight)
+        let headerViewTopSpaceConstraint = NSLayoutConstraint(item: headerView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0)
         view.addConstraints([
-            NSLayoutConstraint(item: headerView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: headerView, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: headerView, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1, constant: 0),
-            headerViewHeightConstraint
+            headerViewHeightConstraint,
+            headerViewTopSpaceConstraint
         ])
         self.headerViewHeightConstraint = headerViewHeightConstraint
+        self.headerViewTopSpaceConstraint = headerViewTopSpaceConstraint
         
         tableView.delegate = self
         tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -165,15 +174,20 @@ public extension SAInboxViewController {
 
 extension SAInboxViewController: UITableViewDelegate {
     public func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-        let isSwipeUp = scrollView.contentOffset.y >= scrollPosition.y
-        
-        if isSwipeUp {
-            SAInboxViewController.StatusBarHeight >= 
-        } else {
-            
+        let contentOffsetY = scrollView.contentOffset.y
+        if shouldHideHeaderView {
+            if contentOffsetY > 0 && contentOffsetY <= SAInboxViewController.HeaderViewHeight - SAInboxViewController.StatusBarHeight {
+                headerViewTopSpaceConstraint?.constant = -contentOffsetY
+                headerView.navigationBar.alpha = 1 - contentOffsetY / (SAInboxViewController.HeaderViewHeight - SAInboxViewController.StatusBarHeight)
+            } else if contentOffsetY > SAInboxViewController.HeaderViewHeight - SAInboxViewController.StatusBarHeight {
+                headerViewTopSpaceConstraint?.constant = -SAInboxViewController.HeaderViewHeight + SAInboxViewController.StatusBarHeight
+                headerView.navigationBar.alpha = 0
+            } else {
+                headerViewTopSpaceConstraint?.constant = 0
+                headerView.navigationBar.alpha = 1
+            }
+            headerView.layoutIfNeeded()
         }
-        
         scrollPosition = scrollView.contentOffset
     }
 }

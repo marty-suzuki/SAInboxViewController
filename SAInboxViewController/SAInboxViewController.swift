@@ -42,7 +42,7 @@ public class SAInboxViewController: UIViewController {
             navigationBar.setTranslatesAutoresizingMaskIntoConstraints(false)
             addSubview(navigationBar)
             self.addConstraints([
-                NSLayoutConstraint(item: navigationBar, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: 20),
+                NSLayoutConstraint(item: navigationBar, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: SAInboxViewController.StatusBarHeight),
                 NSLayoutConstraint(item: navigationBar, attribute: .Left, relatedBy: .Equal, toItem: self, attribute: .Left, multiplier: 1, constant: 0),
                 NSLayoutConstraint(item: navigationBar, attribute: .Right, relatedBy: .Equal, toItem: self, attribute: .Right, multiplier: 1, constant: 0),
                 NSLayoutConstraint(item: navigationBar, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1, constant: 0)
@@ -79,7 +79,8 @@ public class SAInboxViewController: UIViewController {
     
     //MARK: - Staitc properties
     public static let appearance = Appearance()
-    private static let kHeaderViewHeight: CGFloat = 64
+    static let HeaderViewHeight: CGFloat = 64
+    static let StatusBarHeight: CGFloat = 20
     
     //MARK: - Instance properties
     public let headerView = HeaderView()
@@ -90,7 +91,8 @@ public class SAInboxViewController: UIViewController {
                 headerView.setTitle(title)
             }
         }
-    }    
+    }
+    private var scrollPosition: CGPoint = CGPointZero
     private var headerViewHeightConstraint: NSLayoutConstraint?
     public var enabledViewControllerBasedAppearance :Bool = false
     public let appearance = Appearance()
@@ -112,7 +114,7 @@ public extension SAInboxViewController {
         headerView.applyAppearance(SAInboxViewController.appearance)
         headerView.setTranslatesAutoresizingMaskIntoConstraints(false)
         view.addSubview(headerView)
-        let headerViewHeightConstraint = NSLayoutConstraint(item: headerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: 64)
+        let headerViewHeightConstraint = NSLayoutConstraint(item: headerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: SAInboxViewController.HeaderViewHeight)
         view.addConstraints([
             NSLayoutConstraint(item: headerView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: headerView, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1, constant: 0),
@@ -121,6 +123,7 @@ public extension SAInboxViewController {
         ])
         self.headerViewHeightConstraint = headerViewHeightConstraint
         
+        tableView.delegate = self
         tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
         view.addSubview(tableView)
         view.addConstraints([
@@ -149,7 +152,7 @@ public extension SAInboxViewController {
 //MARK: Public Methods
 public extension SAInboxViewController {
     public func setHeaderViewHidden(hidden: Bool, animated: Bool) {
-        headerViewHeightConstraint?.constant = hidden ? 0 : SAInboxViewController.kHeaderViewHeight
+        headerViewHeightConstraint?.constant = hidden ? 0 : SAInboxViewController.HeaderViewHeight
         if animated {
             UIView.animateWithDuration(0.25) {
                 self.view.layoutIfNeeded()
@@ -157,5 +160,20 @@ public extension SAInboxViewController {
         } else {
             view.layoutIfNeeded()
         }
+    }
+}
+
+extension SAInboxViewController: UITableViewDelegate {
+    public func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        let isSwipeUp = scrollView.contentOffset.y >= scrollPosition.y
+        
+        if isSwipeUp {
+            SAInboxViewController.StatusBarHeight >= 
+        } else {
+            
+        }
+        
+        scrollPosition = scrollView.contentOffset
     }
 }

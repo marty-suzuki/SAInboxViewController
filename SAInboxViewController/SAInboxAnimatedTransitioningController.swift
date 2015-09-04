@@ -59,10 +59,12 @@ public extension SAInboxAnimatedTransitioningController {
         return self
     }
     
-    public func configureCotainerView(superview: UIView, cell: UITableViewCell, cells: [UITableViewCell], headerImage: UIImage) {
-        transitioningContainerView.frame = superview.bounds
-        transitioningContainerView.setupContainer(cell, cells:cells, superview: superview)
+    public func configureCotainerView(viewController: SAInboxViewController, cell: UITableViewCell, cells: [UITableViewCell], headerImage: UIImage) {
+        transitioningContainerView.frame = viewController.view.bounds
+        transitioningContainerView.setupContainer(cell, cells:cells, superview: viewController.view)
         transitioningContainerView.headerImage = headerImage
+        transitioningContainerView.headerViewOrigin = viewController.headerView.frame.origin
+        transitioningContainerView.headerImageView.frame.origin.y = transitioningContainerView.headerViewOrigin.y
     }
 }
 
@@ -106,7 +108,7 @@ private extension SAInboxAnimatedTransitioningController {
                         fromViewController.view.frame.origin.y = targetPosition.y
                     }
                 }
-                transitioningContainerView.headerImageView.frame.origin.y = 0
+                transitioningContainerView.headerImageView.frame.origin.y = transitioningContainerView.headerViewOrigin.y
                 
                 if transitioningType == .BottomPop {
                     fromViewController.resetContentOffset(isLower: true)

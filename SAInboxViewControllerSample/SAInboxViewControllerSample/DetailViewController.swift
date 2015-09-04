@@ -39,6 +39,15 @@ class DetailViewController: SAInboxDetailViewController {
         enabledViewControllerBasedAppearance = true
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .Default
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

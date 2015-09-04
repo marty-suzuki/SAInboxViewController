@@ -8,10 +8,6 @@
 
 import UIKit
 
-@objc public protocol SAInboxViewControllerDelegate: NSObjectProtocol {
-    optional func inboxViewControllerShouldChangeStatusBarColor(viewController: SAInboxViewController, isScrollingDirectionUp: Bool)
-}
-
 public class SAInboxViewController: UIViewController {
     
     //MARK: - Inner classes
@@ -100,7 +96,6 @@ public class SAInboxViewController: UIViewController {
     private var headerViewHeightConstraint: NSLayoutConstraint?
     public var enabledViewControllerBasedAppearance :Bool = false
     public let appearance = Appearance()
-    public weak var delegate: SAInboxViewControllerDelegate?
     private var headerViewTopSpaceConstraint: NSLayoutConstraint?
     var shouldHideHeaderView = true
 }
@@ -145,7 +140,7 @@ public extension SAInboxViewController {
     
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         if enabledViewControllerBasedAppearance {
             headerView.applyAppearance(appearance)
         }

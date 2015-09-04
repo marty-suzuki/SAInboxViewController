@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc public protocol SAInboxDetailViewControllerDelegate: NSObjectProtocol {
+    optional func inboxDetailViewControllerShouldChangeStatusBarColor(viewController: SAInboxDetailViewController, isScrollingDirectionUp: Bool)
+}
+
 public class SAInboxDetailViewController: SAInboxViewController {
     
     //MARK: Static Properties
@@ -25,6 +29,8 @@ public class SAInboxDetailViewController: SAInboxViewController {
     var thumbImage: UIImage?
     private(set) var endHeaderPosition: CGPoint = CGPointZero
     private(set) var endTableViewPosition: CGPoint = CGPointZero
+    
+    public weak var delegate: SAInboxDetailViewControllerDelegate?
     
     let alphaView = UIView()
     

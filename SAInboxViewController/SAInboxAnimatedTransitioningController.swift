@@ -26,31 +26,37 @@ public class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerA
 
 //MARK: - Public Methods
 public extension SAInboxAnimatedTransitioningController {
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.3
     }
     
     public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
-        let contentView = transitionContext.containerView()
+        guard let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
+            return
+        }
+        guard let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) else {
+            return
+        }
+        guard let contentView = transitionContext.containerView() else {
+            return
+        }
+        guard let operation = operation else {
+            return
+        }
         
         contentView.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         
         let duration = transitionDuration(transitionContext)
-        if let toViewController = toViewController, fromViewController = fromViewController, operation = operation {
-            switch (operation) {
-                case .Push:
-                    pushTransition(duration, transitionContext: transitionContext, transitioningType: transitioningType, transitioningContainerView: transitioningContainerView, contentView: contentView, toViewController: toViewController, fromViewController: fromViewController)
-                
-                case .Pop:
-                    popTransition(duration, transitionContext: transitionContext, transitioningType: transitioningType, transitioningContainerView: transitioningContainerView, contentView: contentView, toViewController: toViewController, fromViewController: fromViewController)
-                
-                case .None:
-                    break
-            }
+        switch (operation) {
+            case .Push:
+                pushTransition(duration, transitionContext: transitionContext, transitioningType: transitioningType, transitioningContainerView: transitioningContainerView, contentView: contentView, toViewController: toViewController, fromViewController: fromViewController)
             
+            case .Pop:
+                popTransition(duration, transitionContext: transitionContext, transitioningType: transitioningType, transitioningContainerView: transitioningContainerView, contentView: contentView, toViewController: toViewController, fromViewController: fromViewController)
+            
+            case .None:
+                break
         }
     }
     
@@ -92,38 +98,40 @@ private extension SAInboxAnimatedTransitioningController {
         contentView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
         contentView.addSubview(transitioningContainerView)
         
-        if let fromViewController = fromViewController as? SAInboxDetailViewController {
-            fromViewController.view.frame.origin = fromViewController.endHeaderPosition
-            toViewController.view.hidden = true
-            
-            if transitioningType == .TopPop || transitioningType == .HeaderPop {
-                fromViewController.resetContentOffset(isLower: false)
-            }
+        guard let fromViewController = fromViewController as? SAInboxDetailViewController else {
+            return
+        }
         
-            UIView.animateWithDuration(duration, animations: {
-                if let targetPosition = transitioningContainerView.targetPosition, targetHeight = transitioningContainerView.targetHeight {
-                    if transitioningType == .BottomPop {
-                        fromViewController.view.frame.origin.y = -(fromViewController.view.frame.size.height - targetPosition.y) + targetHeight
-                    } else if transitioningType == .TopPop || transitioningType == .HeaderPop {
-                        fromViewController.view.frame.origin.y = targetPosition.y
-                    }
-                }
-                transitioningContainerView.headerImageView.frame.origin.y = transitioningContainerView.headerViewOrigin.y
-                
+        fromViewController.view.frame.origin = fromViewController.endHeaderPosition
+        toViewController.view.hidden = true
+        
+        if transitioningType == .TopPop || transitioningType == .HeaderPop {
+            fromViewController.resetContentOffset(isLower: false)
+        }
+    
+        UIView.animateWithDuration(duration, animations: {
+            if let targetPosition = transitioningContainerView.targetPosition, targetHeight = transitioningContainerView.targetHeight {
                 if transitioningType == .BottomPop {
-                    fromViewController.resetContentOffset(isLower: true)
+                    fromViewController.view.frame.origin.y = -(fromViewController.view.frame.size.height - targetPosition.y) + targetHeight
+                } else if transitioningType == .TopPop || transitioningType == .HeaderPop {
+                    fromViewController.view.frame.origin.y = targetPosition.y
                 }
-                
-                transitioningContainerView.close()
-                
-                fromViewController.view.frame.origin.x = 0
-                
-            }) { finished in
-                toViewController.view.hidden = false
-                transitioningContainerView.resetContainer()
-                transitioningContainerView.removeFromSuperview()
-                transitionContext.completeTransition(true)
             }
+            transitioningContainerView.headerImageView.frame.origin.y = transitioningContainerView.headerViewOrigin.y
+            
+            if transitioningType == .BottomPop {
+                fromViewController.resetContentOffset(isLower: true)
+            }
+            
+            transitioningContainerView.close()
+            
+            fromViewController.view.frame.origin.x = 0
+            
+        }) { finished in
+            toViewController.view.hidden = false
+            transitioningContainerView.resetContainer()
+            transitioningContainerView.removeFromSuperview()
+            transitionContext.completeTransition(true)
         }
     }
 }

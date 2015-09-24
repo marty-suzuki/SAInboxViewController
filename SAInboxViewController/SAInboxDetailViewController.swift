@@ -40,7 +40,7 @@ public class SAInboxDetailViewController: SAInboxViewController {
     }
     
     required public init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
 }
 
@@ -104,7 +104,7 @@ private extension SAInboxDetailViewController {
 
 //MARK: - Internal Methods
 extension SAInboxDetailViewController {
-    func resetContentOffset(#isLower: Bool) {
+    func resetContentOffset(isLower isLower: Bool) {
         if isLower {
             tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentSize.height - tableView.bounds.size.height), animated: false)
         } else {
@@ -211,7 +211,7 @@ extension SAInboxDetailViewController {
 }
 
 //MARK: - UITableViewDelegate Methods
-extension SAInboxDetailViewController: UITableViewDelegate {
+extension SAInboxDetailViewController {
     public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let yOffset = scrollView.contentOffset.y
         let value = yOffset - (scrollView.contentSize.height - scrollView.bounds.size.height)
@@ -230,6 +230,15 @@ extension SAInboxDetailViewController: UITableViewDelegate {
     public override func scrollViewDidScroll(scrollView: UIScrollView) {
         super.scrollViewDidScroll(scrollView)
         
+        let yOffset = scrollView.contentOffset.y
+        if yOffset < 0 {
+            scrollView.scrollIndicatorInsets.top = -yOffset
+        } else if yOffset > scrollView.contentSize.height - scrollView.bounds.size.height {
+            scrollView.scrollIndicatorInsets.bottom = yOffset - (scrollView.contentSize.height - scrollView.bounds.size.height)
+        } else {
+            scrollView.scrollIndicatorInsets = UIEdgeInsetsZero
+        }
+        
         if stopScrolling {
             scrollView.setContentOffset(scrollView.contentOffset, animated: false)
             return
@@ -237,7 +246,6 @@ extension SAInboxDetailViewController: UITableViewDelegate {
         
         let standardValue = SAInboxDetailViewController.kStandardValue
         let transitioningController = SAInboxAnimatedTransitioningController.sharedInstance
-        let yOffset = scrollView.contentOffset.y
         let value = yOffset - (scrollView.contentSize.height - scrollView.bounds.size.height)
         let transitioningContainerView = transitioningController.transitioningContainerView
         if  value >= 0  {

@@ -62,7 +62,7 @@ class FeedViewController: SAInboxViewController {
 
 extension FeedViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(FeedViewCell.kCellIdentifier) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(FeedViewCell.kCellIdentifier)!
         
         if let cell = cell as? FeedViewCell {
             let num = indexPath.row % 5 + 1
@@ -85,7 +85,8 @@ extension FeedViewController: UITableViewDataSource {
     }
 }
 
-extension FeedViewController: UITableViewDelegate {
+//MARK: - UITableViewDelegate Methods
+extension FeedViewController {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100
     }
@@ -98,8 +99,8 @@ extension FeedViewController: UITableViewDelegate {
             viewController.iconImage = cell.iconImageView?.image
         }
         
-        if let cell = tableView.cellForRowAtIndexPath(indexPath), cells = tableView.visibleCells() as? [UITableViewCell] {
-            SAInboxAnimatedTransitioningController.sharedInstance.configureCotainerView(self, cell: cell, cells: cells, headerImage: headerView.screenshotImage())
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            SAInboxAnimatedTransitioningController.sharedInstance.configureCotainerView(self, cell: cell, cells: tableView.visibleCells, headerImage: headerView.screenshotImage())
         }
         
         let content = contents[indexPath.row]

@@ -30,8 +30,6 @@ class DetailViewController: SAInboxDetailViewController {
         tableView.separatorInset = UIEdgeInsetsZero
         tableView.layoutMargins = UIEdgeInsetsZero
         
-        tableView.showsVerticalScrollIndicator = false
-        
         let color = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         appearance.barTintColor = .whiteColor()
         appearance.tintColor = color
@@ -56,7 +54,7 @@ class DetailViewController: SAInboxDetailViewController {
 
 extension DetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(DetailViewCell.kCellIdentifier) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(DetailViewCell.kCellIdentifier)!
         
         if let cell = cell as? DetailViewCell {
             cell.setIconImage(iconImage)

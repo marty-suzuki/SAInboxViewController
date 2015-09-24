@@ -40,7 +40,7 @@ public class SAInboxDetailViewController: SAInboxViewController {
     }
     
     required public init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
 }
 
@@ -104,7 +104,7 @@ private extension SAInboxDetailViewController {
 
 //MARK: - Internal Methods
 extension SAInboxDetailViewController {
-    func resetContentOffset(#isLower: Bool) {
+    func resetContentOffset(isLower isLower: Bool) {
         if isLower {
             tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentSize.height - tableView.bounds.size.height), animated: false)
         } else {
@@ -211,7 +211,7 @@ extension SAInboxDetailViewController {
 }
 
 //MARK: - UITableViewDelegate Methods
-extension SAInboxDetailViewController: UITableViewDelegate {
+extension SAInboxDetailViewController {
     public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let yOffset = scrollView.contentOffset.y
         let value = yOffset - (scrollView.contentSize.height - scrollView.bounds.size.height)

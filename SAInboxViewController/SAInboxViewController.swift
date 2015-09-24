@@ -12,7 +12,7 @@ public class SAInboxViewController: UIViewController {
     
     //MARK: - Inner classes
     public class Appearance: NSObject {
-        public var titleTextAttributes: [NSObject : AnyObject]?
+        public var titleTextAttributes: [String : AnyObject]?
         public var tintColor: UIColor?
         public var barTintColor: UIColor?
     }
@@ -29,7 +29,7 @@ public class SAInboxViewController: UIViewController {
         }
         
         public init() {
-            super.init(frame: .zeroRect)
+            super.init(frame: .zero)
             initialization()
         }
         
@@ -39,7 +39,7 @@ public class SAInboxViewController: UIViewController {
         
         private func initialization() {
             navigationBar.translucent = false
-            navigationBar.setTranslatesAutoresizingMaskIntoConstraints(false)
+            navigationBar.translatesAutoresizingMaskIntoConstraints = false
             addSubview(navigationBar)
             self.addConstraints([
                 NSLayoutConstraint(item: navigationBar, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: SAInboxViewController.StatusBarHeight),
@@ -48,7 +48,7 @@ public class SAInboxViewController: UIViewController {
                 NSLayoutConstraint(item: navigationBar, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1, constant: 0)
             ])
             
-            navigationBar.items.append(navigationItem)
+            navigationBar.items?.append(navigationItem)
             
             closeButtonItem.target = self
             closeButtonItem.action = "didTapCloseButton:"
@@ -109,12 +109,12 @@ public extension SAInboxViewController {
         
         if navigationController?.viewControllers.count > 1 {
             headerView.closeButtonAction = { [weak self] in
-                navigationController?.popViewControllerAnimated(true)
+                self?.navigationController?.popViewControllerAnimated(true)
             }
         }
         
         headerView.applyAppearance(SAInboxViewController.appearance)
-        headerView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        headerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(headerView)
         let headerViewHeightConstraint = NSLayoutConstraint(item: headerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: SAInboxViewController.HeaderViewHeight)
         let headerViewTopSpaceConstraint = NSLayoutConstraint(item: headerView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0)
@@ -128,7 +128,7 @@ public extension SAInboxViewController {
         self.headerViewTopSpaceConstraint = headerViewTopSpaceConstraint
         
         tableView.delegate = self
-        tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         view.addConstraints([
             NSLayoutConstraint(item: tableView, attribute: .Top, relatedBy: .Equal, toItem: headerView, attribute: .Bottom, multiplier: 1, constant: 0),

@@ -56,7 +56,7 @@ class DetailViewController: SAInboxDetailViewController {
 
 extension DetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(DetailViewCell.kCellIdentifier) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(DetailViewCell.kCellIdentifier)!
         
         if let cell = cell as? DetailViewCell {
             cell.setIconImage(iconImage)

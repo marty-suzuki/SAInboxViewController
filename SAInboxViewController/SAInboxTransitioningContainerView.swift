@@ -91,9 +91,7 @@ extension SAInboxTransitioningContainerView {
     }
     
     func resetContainer() {
-        if let views = subviews as? [UIView] {
-            for view in views { view.removeFromSuperview() }
-        }
+        for view in subviews { view.removeFromSuperview() }
         imageInformations.removeAll(keepCapacity: false)
         targetPosition = nil
     }

@@ -230,6 +230,15 @@ extension SAInboxDetailViewController {
     public override func scrollViewDidScroll(scrollView: UIScrollView) {
         super.scrollViewDidScroll(scrollView)
         
+        let yOffset = scrollView.contentOffset.y
+        if yOffset < 0 {
+            scrollView.scrollIndicatorInsets.top = -yOffset
+        } else if yOffset > scrollView.contentSize.height - scrollView.bounds.size.height {
+            scrollView.scrollIndicatorInsets.bottom = yOffset - (scrollView.contentSize.height - scrollView.bounds.size.height)
+        } else {
+            scrollView.scrollIndicatorInsets = UIEdgeInsetsZero
+        }
+        
         if stopScrolling {
             scrollView.setContentOffset(scrollView.contentOffset, animated: false)
             return
@@ -237,7 +246,6 @@ extension SAInboxDetailViewController {
         
         let standardValue = SAInboxDetailViewController.kStandardValue
         let transitioningController = SAInboxAnimatedTransitioningController.sharedInstance
-        let yOffset = scrollView.contentOffset.y
         let value = yOffset - (scrollView.contentSize.height - scrollView.bounds.size.height)
         let transitioningContainerView = transitioningController.transitioningContainerView
         if  value >= 0  {

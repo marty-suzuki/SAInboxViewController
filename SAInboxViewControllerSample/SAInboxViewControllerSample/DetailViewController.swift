@@ -30,8 +30,6 @@ class DetailViewController: SAInboxDetailViewController {
         tableView.separatorInset = UIEdgeInsetsZero
         tableView.layoutMargins = UIEdgeInsetsZero
         
-        tableView.showsVerticalScrollIndicator = false
-        
         let color = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         appearance.barTintColor = .whiteColor()
         appearance.tintColor = color

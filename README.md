@@ -112,8 +112,9 @@ override func viewDidLoad() {
 
 ## Requirements
 
-- Xcode 6.4 or greater
-- iOS7.0(manually only) or greater
+- Xcode 7.0 or greater
+- iOS 8.0 or greater
+- [MisterFusion](https://github.com/szk-atmosphere/MisterFusion) (Swift DSL for AutoLayout)
 
 ## Author
 

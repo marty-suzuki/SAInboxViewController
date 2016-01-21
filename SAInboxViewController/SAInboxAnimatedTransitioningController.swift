@@ -31,20 +31,10 @@ public extension SAInboxAnimatedTransitioningController {
     }
     
     public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        
-        guard let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
-            return
-        }
-        guard let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) else {
-            return
-        }
-        guard let contentView = transitionContext.containerView() else {
-            return
-        }
-        guard let operation = operation else {
-            return
-        }
-        
+        guard let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else { return }
+        guard let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) else { return }
+        guard let contentView = transitionContext.containerView() else { return }
+        guard let operation = operation else { return }
         contentView.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         
         let duration = transitionDuration(transitionContext)
@@ -98,9 +88,7 @@ private extension SAInboxAnimatedTransitioningController {
         contentView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
         contentView.addSubview(transitioningContainerView)
         
-        guard let fromViewController = fromViewController as? SAInboxDetailViewController else {
-            return
-        }
+        guard let fromViewController = fromViewController as? SAInboxDetailViewController else { return }
         
         fromViewController.view.frame.origin = fromViewController.endHeaderPosition
         toViewController.view.hidden = true

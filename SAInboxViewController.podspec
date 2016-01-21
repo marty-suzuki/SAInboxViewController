@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SAInboxViewController"
-  s.version          = "0.4.0"
+  s.version          = "0.5.0"
   s.summary          = "UIViewController subclass inspired by \"Inbox by google\" animated transitioning."
   s.homepage         = "https://github.com/szk-atmosphere/SAInboxViewController"
   s.license          = 'MIT'
@@ -27,5 +27,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'MisterFusion'
 end

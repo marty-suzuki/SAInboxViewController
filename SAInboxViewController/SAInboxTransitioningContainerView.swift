@@ -55,86 +55,73 @@ extension SAInboxTransitioningContainerView {
     func setupContainer(targetCell: UITableViewCell, cells: [UITableViewCell], superview: UIView) {
         var imageTag: Int = 10001
         var detectTarget = false
-        for cell in cells {
-            if let point = cell.superview?.convertPoint(cell.frame.origin, toView: superview) {
-                
-                let isTarget: Bool
-                if targetCell == cell {
-                    isTarget = true
-                    detectTarget = true
-                    targetPosition = point
-                    targetHeight = CGRectGetHeight(cell.frame)
-                } else {
-                    isTarget = false
-                }
-                
-                let position: ImageInformation.Position
-                if isTarget {
-                    position = .Target
-                } else if !detectTarget {
-                    position = .Below
-                } else {
-                    position = .Above
-                }
-                
-                let imageView = UIImageView(frame: cell.bounds)
-                cell.selectionStyle = .None
-                imageView.image = cell.screenshotImage()
-                cell.selectionStyle = .Default
-                imageView.tag = imageTag
-                imageView.frame.origin = point
-                addSubview(imageView)
-                
-                imageInformations += [ImageInformation(tag: imageTag++, initialOrigin: point, height: CGRectGetHeight(cell.frame), isTarget: isTarget, position: position)]
+        cells.forEach {
+            guard let point = $0.superview?.convertPoint($0.frame.origin, toView: superview) else { return }
+            let isTarget: Bool
+            if targetCell == $0 {
+                isTarget = true
+                detectTarget = true
+                targetPosition = point
+                targetHeight = CGRectGetHeight($0.frame)
+            } else {
+                isTarget = false
             }
+            
+            let imageView = UIImageView(frame: $0.bounds)
+            $0.selectionStyle = .None
+            imageView.image = $0.screenshotImage()
+            $0.selectionStyle = .Default
+            imageView.tag = imageTag
+            imageView.frame.origin = point
+            addSubview(imageView)
+            
+            let position: ImageInformation.Position = isTarget ? .Target : !detectTarget ? .Below : .Above
+            imageInformations += [ImageInformation(tag: imageTag++, initialOrigin: point, height: CGRectGetHeight($0.frame), isTarget: isTarget, position: position)]
         }
     }
     
     func resetContainer() {
-        for view in subviews { view.removeFromSuperview() }
+        subviews.forEach { $0.removeFromSuperview() }
         imageInformations.removeAll(keepCapacity: false)
         targetPosition = nil
     }
     
     func open() {
-        if let targetPosition = targetPosition {
-            for imageInformation in imageInformations {
-                let view = viewWithTag(imageInformation.tag)
-                if imageInformation.isTarget {
-                    view?.alpha = 0
-                }
-                if imageInformation.initialOrigin.y <= targetPosition.y {
-                    view?.frame.origin.y = imageInformation.initialOrigin.y - targetPosition.y
-                } else {
-                    view?.frame.origin.y = frame.size.height + (imageInformation.initialOrigin.y - targetPosition.y) - imageInformation.height
-                }
+        guard let targetPosition = targetPosition else { return }
+        imageInformations.forEach {
+            let view = viewWithTag($0.tag)
+            if $0.isTarget {
+                view?.alpha = 0
+            }
+            if $0.initialOrigin.y <= targetPosition.y {
+                view?.frame.origin.y = $0.initialOrigin.y - targetPosition.y
+            } else {
+                view?.frame.origin.y = frame.size.height + ($0.initialOrigin.y - targetPosition.y) - $0.height
             }
         }
     }
     
     func close() {
-        for imageInformation in imageInformations {
-            let view = viewWithTag(imageInformation.tag)
-            if imageInformation.isTarget {
+        imageInformations.forEach {
+            let view = viewWithTag($0.tag)
+            if $0.isTarget {
                 view?.alpha = 1
             }
-            view?.frame.origin.y = imageInformation.initialOrigin.y
+            view?.frame.origin.y = $0.initialOrigin.y
         }
     }
     
     func upperMoveToValue(value: CGFloat) {
-        for imageInformation in imageInformations {
-            if let targetPosition = targetPosition where targetPosition.y >= imageInformation.initialOrigin.y {
-                viewWithTag(imageInformation.tag)?.frame.origin.y = imageInformation.initialOrigin.y - targetPosition.y + value
-            }
+        imageInformations.forEach {
+            guard let targetPosition = targetPosition where targetPosition.y >= $0.initialOrigin.y else { return }
+            viewWithTag($0.tag)?.frame.origin.y = $0.initialOrigin.y - targetPosition.y + value
         }
     }
     
     func lowerMoveToValue(value: CGFloat) {
-        for imageInformation in imageInformations {
-            if let targetPosition = targetPosition where targetPosition.y < imageInformation.initialOrigin.y {
-                viewWithTag(imageInformation.tag)?.frame.origin.y = frame.size.height + (imageInformation.initialOrigin.y - targetPosition.y) - imageInformation.height - value
-            }
+        imageInformations.forEach {
+            guard let targetPosition = targetPosition where targetPosition.y < $0.initialOrigin.y else { return }
+            viewWithTag($0.tag)?.frame.origin.y = frame.size.height + ($0.initialOrigin.y - targetPosition.y) - $0.height - value
         }
     }
 }

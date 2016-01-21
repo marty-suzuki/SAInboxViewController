@@ -7,310 +7,489 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		156A3504050EFA80D7856BA6 /* SAInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B50A4929CB4A836CE8B294 /* SAInboxViewController.swift */; };
-		1A158AA1968614B32ADC56B2 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC0BE3A39306BFE5C665D4E /* Pods-dummy.m */; };
-		37E649191B7ED01000FD54F7 /* SAInboxDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E649101B79E4DE00FD54F7 /* SAInboxDetailViewController.swift */; };
-		37E6491A1B7ED01400FD54F7 /* SAInboxAnimatedTransitioningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E6490E1B79E41F00FD54F7 /* SAInboxAnimatedTransitioningController.swift */; };
-		37E6491B1B7ED01800FD54F7 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E6490C1B79E14900FD54F7 /* UIView+Utils.swift */; };
-		37E6491C1B7ED01C00FD54F7 /* SAInboxTransitioningContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E6490A1B79E0FD00FD54F7 /* SAInboxTransitioningContainerView.swift */; };
-		674B0652B7D321AA1FCF48E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA93EA963AB61289E83080E /* Foundation.framework */; };
-		6A7BCDAE8D50291C5D0170B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA93EA963AB61289E83080E /* Foundation.framework */; };
-		C8B73CED40EE782A424604D5 /* Pods-SAInboxViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0896BB8E5A8D1A614D16176E /* Pods-SAInboxViewController-dummy.m */; };
-		DED415DC5533579D00C88D1D /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C8B79957424205CA78855AA /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F03DFB44F4FB483425149F67 /* Pods-SAInboxViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D4D67F36929FC0C7E2C08FE /* Pods-SAInboxViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22636CE1C55E8CA607798DEEABC3E8B7 /* MisterFusion-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 875FB32E7571C9F7C0CFDFC326F001D9 /* MisterFusion-dummy.m */; };
+		255DD3DAB3B60CDB5BEE403577FCDB6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE8DFF4A9DB0DD3B2C3C259990274EF /* Foundation.framework */; };
+		29DA59A602B49E8CF9AA7A2F5DF821FF /* SAInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBB8814D68B42E4F1191CE116967C72 /* SAInboxViewController.swift */; };
+		5221E1603EB698ABCA405B0B129505DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE8DFF4A9DB0DD3B2C3C259990274EF /* Foundation.framework */; };
+		53EE8DE41682CE1D265BE8B60ED69A11 /* Array+MisterFusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE503BB9FA087B4D1044E89C0F02C1DA /* Array+MisterFusion.swift */; };
+		5678EA6D29EE2519F157C0AC189A7B98 /* SAInboxTransitioningContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266D4EF30953F398986887C573AD469 /* SAInboxTransitioningContainerView.swift */; };
+		626C3E6C72F9220D23300E8AAADD3EB1 /* SAInboxAnimatedTransitioningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0596A74527E9749BE8F897BF0D8D90B /* SAInboxAnimatedTransitioningController.swift */; };
+		650A083EDBE83D42374806494411CD81 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A6272D807913536F20DAEFF5D243F74 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBFE8BD72435F11E43EECB22102201F /* UIView+Utils.swift */; };
+		7DFBA6E2C10BD99EE6790292F357A287 /* SAInboxViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB80CCFF387375B1768FD4456B6CBCD /* SAInboxViewController-dummy.m */; };
+		A03C84FA56C1EFBCE51BD48F9EBD5CD3 /* MisterFusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD92E11A3E6901130A5BC1931244D3B /* MisterFusion.swift */; };
+		A46600C6E7FB226355F39BA260133DDD /* MisterFusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2935E17DC126D987EF4144AFC60EE96 /* MisterFusion.framework */; };
+		B269CE3A7B8DB8FC21CCA181326D300A /* SAInboxDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7746927B1BE9966C2A9135046EC4BE1 /* SAInboxDetailViewController.swift */; };
+		B2AC28704B5159D1E6C0642B3FEA19ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08E436454A058F090DBDBE426F469B5 /* UIKit.framework */; };
+		B9949A5767EAB8E1F0EA286B152795A1 /* SAInboxViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B064459F8DE1A8C2746C7D08F02F2FA4 /* SAInboxViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D94E68FAA19139BF9994C70FC8DF12C1 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */; };
+		E97A332AFCB13BB4E1857CA5BCB2A357 /* MisterFusion-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D0028AD92BEB6711AE873F6A24F06FF7 /* MisterFusion-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE6E4183E3F9C468C244DAE05651626A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE8DFF4A9DB0DD3B2C3C259990274EF /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B657539B2493E12B111ABAE9 /* PBXContainerItemProxy */ = {
+		275FB0C41ACC6C1B97C7B5BCEA66E2F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1F96FCC49037DE6867F26B55 /* Project object */;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 330052037D894F9414BAC15F;
-			remoteInfo = "Pods-SAInboxViewController";
+			remoteGlobalIDString = 7C9ABB14AA54EDF01494E53CF2546669;
+			remoteInfo = SAInboxViewController;
+		};
+		9CEFA958412093632A85AA58E8A8666C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FC843BD22328DEFBCAB1DA4A92108F7;
+			remoteInfo = MisterFusion;
+		};
+		BC365797FAAFA89D73766BE1AA43DB11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FC843BD22328DEFBCAB1DA4A92108F7;
+			remoteInfo = MisterFusion;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0896BB8E5A8D1A614D16176E /* Pods-SAInboxViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SAInboxViewController-dummy.m"; sourceTree = "<group>"; };
-		1675D9CD1EC52C2C5440CDAB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2194DF4CAC02441BD5AF7739 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		23315D8AA9CE6117F7B84573 /* Pods-SAInboxViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SAInboxViewController-prefix.pch"; sourceTree = "<group>"; };
-		37E6490A1B79E0FD00FD54F7 /* SAInboxTransitioningContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAInboxTransitioningContainerView.swift; sourceTree = "<group>"; };
-		37E6490C1B79E14900FD54F7 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
-		37E6490E1B79E41F00FD54F7 /* SAInboxAnimatedTransitioningController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAInboxAnimatedTransitioningController.swift; sourceTree = "<group>"; };
-		37E649101B79E4DE00FD54F7 /* SAInboxDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAInboxDetailViewController.swift; sourceTree = "<group>"; };
-		38321A9B6DFA1805DDB8D1CD /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		3D4D67F36929FC0C7E2C08FE /* Pods-SAInboxViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SAInboxViewController-umbrella.h"; sourceTree = "<group>"; };
-		4C8B79957424205CA78855AA /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
-		523BB819A3D1C203FF02C353 /* SAInboxViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SAInboxViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6924AEB15FDE992DCE39C66C /* Pods-SAInboxViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SAInboxViewController.xcconfig"; sourceTree = "<group>"; };
-		75F12A272334CE01292F5202 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7796C3F62CFCB38DCDD4671C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		8AE1C2CB7001DCD414671360 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		91B50A4929CB4A836CE8B294 /* SAInboxViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SAInboxViewController.swift; sourceTree = "<group>"; };
-		99C52F7628383DF672C7829F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		9BA93EA963AB61289E83080E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		9FE58E084919BF6F0B1A23B3 /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
-		A0FC50DDEA00D8A77717ACDE /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		BFC0BE3A39306BFE5C665D4E /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		C0FEBF46DC53E6EB003F25EB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CDB57F8B923C62AAD8CA19FA /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D6B83DF909360494D023462A /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F8AC8F59453E1CF0D7300904 /* Pods-SAInboxViewController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SAInboxViewController-Private.xcconfig"; sourceTree = "<group>"; };
-		FA8D9834451EC5D347810A6D /* Pods-SAInboxViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SAInboxViewController.modulemap"; sourceTree = "<group>"; };
+		03E3FE02E6B23F6359A53225B433B444 /* MisterFusion.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MisterFusion.xcconfig; sourceTree = "<group>"; };
+		126CE3B69EBB85A016EFEAEB3369A4F2 /* MisterFusion.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MisterFusion.modulemap; sourceTree = "<group>"; };
+		2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
+		3125749415A75FDBC33C7F989E935D3E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33C14B0041B0FF9131CD618BF75064EC /* SAInboxViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SAInboxViewController.xcconfig; sourceTree = "<group>"; };
+		358099908639745972F6C9BE1005D85B /* SAInboxViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SAInboxViewController-prefix.pch"; sourceTree = "<group>"; };
+		4AE8DFF4A9DB0DD3B2C3C259990274EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4CB80CCFF387375B1768FD4456B6CBCD /* SAInboxViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SAInboxViewController-dummy.m"; sourceTree = "<group>"; };
+		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
+		7BD92E11A3E6901130A5BC1931244D3B /* MisterFusion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MisterFusion.swift; path = MisterFusion/MisterFusion.swift; sourceTree = "<group>"; };
+		861792DF97F9A4C1DB705DEC1FEA9606 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		875FB32E7571C9F7C0CFDFC326F001D9 /* MisterFusion-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MisterFusion-dummy.m"; sourceTree = "<group>"; };
+		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		A7F4111B85E239CF3B9A75AC6654E27A /* SAInboxViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SAInboxViewController.modulemap; sourceTree = "<group>"; };
+		A7FCC76E61DC5DCF8DFC19BA4FFE4A59 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B064459F8DE1A8C2746C7D08F02F2FA4 /* SAInboxViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SAInboxViewController-umbrella.h"; sourceTree = "<group>"; };
+		B08E436454A058F090DBDBE426F469B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		B2935E17DC126D987EF4144AFC60EE96 /* MisterFusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MisterFusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7746927B1BE9966C2A9135046EC4BE1 /* SAInboxDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SAInboxDetailViewController.swift; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		CD1BDB031C5B903FA091F589E4F901E4 /* MisterFusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MisterFusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0028AD92BEB6711AE873F6A24F06FF7 /* MisterFusion-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MisterFusion-umbrella.h"; sourceTree = "<group>"; };
+		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D217EA38D22A5235C558206F2973EEA0 /* SAInboxViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SAInboxViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D266D4EF30953F398986887C573AD469 /* SAInboxTransitioningContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SAInboxTransitioningContainerView.swift; sourceTree = "<group>"; };
+		DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		DE503BB9FA087B4D1044E89C0F02C1DA /* Array+MisterFusion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+MisterFusion.swift"; path = "MisterFusion/Array+MisterFusion.swift"; sourceTree = "<group>"; };
+		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
+		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0596A74527E9749BE8F897BF0D8D90B /* SAInboxAnimatedTransitioningController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SAInboxAnimatedTransitioningController.swift; sourceTree = "<group>"; };
+		F5F0646FCB22A73B26B5AABE857713BF /* MisterFusion-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MisterFusion-prefix.pch"; sourceTree = "<group>"; };
+		FBBB8814D68B42E4F1191CE116967C72 /* SAInboxViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SAInboxViewController.swift; sourceTree = "<group>"; };
+		FBBFE8BD72435F11E43EECB22102201F /* UIView+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		166FBE0D11511387694D0CB4 /* Frameworks */ = {
+		54C77337B476137FCBAD1AB008AFCC03 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A7BCDAE8D50291C5D0170B0 /* Foundation.framework in Frameworks */,
+				EE6E4183E3F9C468C244DAE05651626A /* Foundation.framework in Frameworks */,
+				B2AC28704B5159D1E6C0642B3FEA19ED /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C6BEAA299D99C0CEC9CB38AC /* Frameworks */ = {
+		8F2F2F30FDCD53AAA6F495A3C100D47E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				674B0652B7D321AA1FCF48E5 /* Foundation.framework in Frameworks */,
+				5221E1603EB698ABCA405B0B129505DD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBAA30AB1730A647129D5742884960DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				255DD3DAB3B60CDB5BEE403577FCDB6C /* Foundation.framework in Frameworks */,
+				A46600C6E7FB226355F39BA260133DDD /* MisterFusion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0BD9043BE63DB924824A9BEE /* Frameworks */ = {
+		2600821F626F5356F5E9B02D74EF8411 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1AA253AF62ADB078D8FE3E78 /* iOS */,
+				3125749415A75FDBC33C7F989E935D3E /* Info.plist */,
+				A7F4111B85E239CF3B9A75AC6654E27A /* SAInboxViewController.modulemap */,
+				33C14B0041B0FF9131CD618BF75064EC /* SAInboxViewController.xcconfig */,
+				4CB80CCFF387375B1768FD4456B6CBCD /* SAInboxViewController-dummy.m */,
+				358099908639745972F6C9BE1005D85B /* SAInboxViewController-prefix.pch */,
+				B064459F8DE1A8C2746C7D08F02F2FA4 /* SAInboxViewController-umbrella.h */,
 			);
-			name = Frameworks;
+			name = "Support Files";
+			path = "SAInboxViewControllerSample/Pods/Target Support Files/SAInboxViewController";
 			sourceTree = "<group>";
 		};
-		1AA253AF62ADB078D8FE3E78 /* iOS */ = {
+		2E518CCD3F7AB8AE7EA633C7176A6AA2 /* SAInboxViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9BA93EA963AB61289E83080E /* Foundation.framework */,
+				F0596A74527E9749BE8F897BF0D8D90B /* SAInboxAnimatedTransitioningController.swift */,
+				B7746927B1BE9966C2A9135046EC4BE1 /* SAInboxDetailViewController.swift */,
+				D266D4EF30953F398986887C573AD469 /* SAInboxTransitioningContainerView.swift */,
+				FBBB8814D68B42E4F1191CE116967C72 /* SAInboxViewController.swift */,
+				FBBFE8BD72435F11E43EECB22102201F /* UIView+Utils.swift */,
 			);
-			name = iOS;
+			path = SAInboxViewController;
 			sourceTree = "<group>";
 		};
-		628D7E11B093D74984B25D77 /* SAInboxViewController */ = {
+		3A210DBE2E238955130D3302E845682B /* SAInboxViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E04BA16D5C3B0ECBCC8C8FB2 /* SAInboxViewController */,
-				B657AF776B2CD30F1B2D0572 /* Support Files */,
+				2E518CCD3F7AB8AE7EA633C7176A6AA2 /* SAInboxViewController */,
+				2600821F626F5356F5E9B02D74EF8411 /* Support Files */,
 			);
 			name = SAInboxViewController;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		75BE7C9EBDB8D2D7674F45AD /* Pods */ = {
+		613F8D15E1855D11E077D6C819D6FB28 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C0FEBF46DC53E6EB003F25EB /* Info.plist */,
-				9FE58E084919BF6F0B1A23B3 /* Pods.modulemap */,
-				D6B83DF909360494D023462A /* Pods-acknowledgements.markdown */,
-				8AE1C2CB7001DCD414671360 /* Pods-acknowledgements.plist */,
-				BFC0BE3A39306BFE5C665D4E /* Pods-dummy.m */,
-				2194DF4CAC02441BD5AF7739 /* Pods-environment.h */,
-				38321A9B6DFA1805DDB8D1CD /* Pods-frameworks.sh */,
-				A0FC50DDEA00D8A77717ACDE /* Pods-resources.sh */,
-				4C8B79957424205CA78855AA /* Pods-umbrella.h */,
-				7796C3F62CFCB38DCDD4671C /* Pods.debug.xcconfig */,
-				99C52F7628383DF672C7829F /* Pods.release.xcconfig */,
+				93FFBBA278706E5415D7ACB78FCDC391 /* MisterFusion */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6BE5275ED461B1EEB11342037D137DF2 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3A210DBE2E238955130D3302E845682B /* SAInboxViewController */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		75D98FF52E597A11900E131B6C4E1ADA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */,
+				79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */,
+				D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */,
+				87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */,
+				894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */,
+				E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */,
+				CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */,
+				2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */,
+				977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */,
+				DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		A129881F54A8793C4D18D7CF = {
+		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				CDB57F8B923C62AAD8CA19FA /* Podfile */,
-				E8BC17262BBC5B69882740F9 /* Development Pods */,
-				0BD9043BE63DB924824A9BEE /* Frameworks */,
-				C504DDE079CEA22AA83332D2 /* Products */,
-				C1CE06C2053F96E0135E7FD2 /* Targets Support Files */,
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				6BE5275ED461B1EEB11342037D137DF2 /* Development Pods */,
+				A9775E712DD7E2C2663D3A2A0E1DE428 /* Frameworks */,
+				613F8D15E1855D11E077D6C819D6FB28 /* Pods */,
+				BEEE23AB2E24909725B0986360E12687 /* Products */,
+				B7B80995527643776607AFFA75B91E24 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		B657AF776B2CD30F1B2D0572 /* Support Files */ = {
+		93FFBBA278706E5415D7ACB78FCDC391 /* MisterFusion */ = {
 			isa = PBXGroup;
 			children = (
-				1675D9CD1EC52C2C5440CDAB /* Info.plist */,
-				FA8D9834451EC5D347810A6D /* Pods-SAInboxViewController.modulemap */,
-				6924AEB15FDE992DCE39C66C /* Pods-SAInboxViewController.xcconfig */,
-				F8AC8F59453E1CF0D7300904 /* Pods-SAInboxViewController-Private.xcconfig */,
-				0896BB8E5A8D1A614D16176E /* Pods-SAInboxViewController-dummy.m */,
-				23315D8AA9CE6117F7B84573 /* Pods-SAInboxViewController-prefix.pch */,
-				3D4D67F36929FC0C7E2C08FE /* Pods-SAInboxViewController-umbrella.h */,
+				DE503BB9FA087B4D1044E89C0F02C1DA /* Array+MisterFusion.swift */,
+				7BD92E11A3E6901130A5BC1931244D3B /* MisterFusion.swift */,
+				9F629509159A70A48A47704FE4A4D3BA /* Support Files */,
+			);
+			path = MisterFusion;
+			sourceTree = "<group>";
+		};
+		9F629509159A70A48A47704FE4A4D3BA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				861792DF97F9A4C1DB705DEC1FEA9606 /* Info.plist */,
+				126CE3B69EBB85A016EFEAEB3369A4F2 /* MisterFusion.modulemap */,
+				03E3FE02E6B23F6359A53225B433B444 /* MisterFusion.xcconfig */,
+				875FB32E7571C9F7C0CFDFC326F001D9 /* MisterFusion-dummy.m */,
+				F5F0646FCB22A73B26B5AABE857713BF /* MisterFusion-prefix.pch */,
+				D0028AD92BEB6711AE873F6A24F06FF7 /* MisterFusion-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "SAInboxViewControllerSample/Pods/Target Support Files/Pods-SAInboxViewController";
+			path = "../Target Support Files/MisterFusion";
 			sourceTree = "<group>";
 		};
-		C1CE06C2053F96E0135E7FD2 /* Targets Support Files */ = {
+		A9775E712DD7E2C2663D3A2A0E1DE428 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				75BE7C9EBDB8D2D7674F45AD /* Pods */,
+				B2935E17DC126D987EF4144AFC60EE96 /* MisterFusion.framework */,
+				BF642F40E4C5542FFBE0C645D0B8A465 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				75D98FF52E597A11900E131B6C4E1ADA /* Pods */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		C504DDE079CEA22AA83332D2 /* Products */ = {
+		BEEE23AB2E24909725B0986360E12687 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75F12A272334CE01292F5202 /* Pods.framework */,
-				523BB819A3D1C203FF02C353 /* SAInboxViewController.framework */,
+				CD1BDB031C5B903FA091F589E4F901E4 /* MisterFusion.framework */,
+				A7FCC76E61DC5DCF8DFC19BA4FFE4A59 /* Pods.framework */,
+				D217EA38D22A5235C558206F2973EEA0 /* SAInboxViewController.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E04BA16D5C3B0ECBCC8C8FB2 /* SAInboxViewController */ = {
+		BF642F40E4C5542FFBE0C645D0B8A465 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				37E6490E1B79E41F00FD54F7 /* SAInboxAnimatedTransitioningController.swift */,
-				37E649101B79E4DE00FD54F7 /* SAInboxDetailViewController.swift */,
-				37E6490A1B79E0FD00FD54F7 /* SAInboxTransitioningContainerView.swift */,
-				91B50A4929CB4A836CE8B294 /* SAInboxViewController.swift */,
-				37E6490C1B79E14900FD54F7 /* UIView+Utils.swift */,
+				4AE8DFF4A9DB0DD3B2C3C259990274EF /* Foundation.framework */,
+				B08E436454A058F090DBDBE426F469B5 /* UIKit.framework */,
 			);
-			path = SAInboxViewController;
-			sourceTree = "<group>";
-		};
-		E8BC17262BBC5B69882740F9 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				628D7E11B093D74984B25D77 /* SAInboxViewController */,
-			);
-			name = "Development Pods";
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1F9A2776561979992C820C59 /* Headers */ = {
+		5E7702F1E80E2696D9185BFED3A6B50A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DED415DC5533579D00C88D1D /* Pods-umbrella.h in Headers */,
+				E97A332AFCB13BB4E1857CA5BCB2A357 /* MisterFusion-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E40475E7E956E28F05C95786 /* Headers */ = {
+		7A742BFCB2ECAA9C3044FC206CED0CB6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F03DFB44F4FB483425149F67 /* Pods-SAInboxViewController-umbrella.h in Headers */,
+				650A083EDBE83D42374806494411CD81 /* Pods-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97204B23E8790AEAEB63587CAEC2972 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9949A5767EAB8E1F0EA286B152795A1 /* SAInboxViewController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		330052037D894F9414BAC15F /* Pods-SAInboxViewController */ = {
+		7C9ABB14AA54EDF01494E53CF2546669 /* SAInboxViewController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18260DAABB494EC3270B0B08 /* Build configuration list for PBXNativeTarget "Pods-SAInboxViewController" */;
+			buildConfigurationList = CAB79ED8220AF2A4A4719D9E0F6892BD /* Build configuration list for PBXNativeTarget "SAInboxViewController" */;
 			buildPhases = (
-				EF57D13651DE4BB929837A13 /* Sources */,
-				C6BEAA299D99C0CEC9CB38AC /* Frameworks */,
-				E40475E7E956E28F05C95786 /* Headers */,
+				2F5909361CF833070955077B87249696 /* Sources */,
+				DBAA30AB1730A647129D5742884960DC /* Frameworks */,
+				D97204B23E8790AEAEB63587CAEC2972 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0256D5C6E73D38075465FAB594030CC9 /* PBXTargetDependency */,
 			);
-			name = "Pods-SAInboxViewController";
-			productName = "Pods-SAInboxViewController";
-			productReference = 523BB819A3D1C203FF02C353 /* SAInboxViewController.framework */;
+			name = SAInboxViewController;
+			productName = SAInboxViewController;
+			productReference = D217EA38D22A5235C558206F2973EEA0 /* SAInboxViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BD2C058F63065E5E4CF27594 /* Pods */ = {
+		8B45C6C40F87066F3D2A32EDA233C5DD /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7E199621B5F427CB7506D472 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = ECA2A7C98C5069617EE5B613511A6177 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				2B2B4861C96E82D68CB826E1 /* Sources */,
-				166FBE0D11511387694D0CB4 /* Frameworks */,
-				1F9A2776561979992C820C59 /* Headers */,
+				8FB8101737FBA93B86E4C2016B3FD54A /* Sources */,
+				8F2F2F30FDCD53AAA6F495A3C100D47E /* Frameworks */,
+				7A742BFCB2ECAA9C3044FC206CED0CB6 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E67982BB87FBE481953CBE2A /* PBXTargetDependency */,
+				3EA4A68BFCE4A89E2712DDEE400A9C9A /* PBXTargetDependency */,
+				3C76BB19726D0BF6A192C0F11CF94056 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 75F12A272334CE01292F5202 /* Pods.framework */;
+			productReference = A7FCC76E61DC5DCF8DFC19BA4FFE4A59 /* Pods.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9FC843BD22328DEFBCAB1DA4A92108F7 /* MisterFusion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D527E849301E62CDDB55A973DEBA607C /* Build configuration list for PBXNativeTarget "MisterFusion" */;
+			buildPhases = (
+				98819D7144BFC0B905DD9D19287ACEEC /* Sources */,
+				54C77337B476137FCBAD1AB008AFCC03 /* Frameworks */,
+				5E7702F1E80E2696D9185BFED3A6B50A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MisterFusion;
+			productName = MisterFusion;
+			productReference = CD1BDB031C5B903FA091F589E4F901E4 /* MisterFusion.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1F96FCC49037DE6867F26B55 /* Project object */ = {
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 			};
-			buildConfigurationList = 45211CC5366F6252F43586F7 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = A129881F54A8793C4D18D7CF;
-			productRefGroup = C504DDE079CEA22AA83332D2 /* Products */;
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = BEEE23AB2E24909725B0986360E12687 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD2C058F63065E5E4CF27594 /* Pods */,
-				330052037D894F9414BAC15F /* Pods-SAInboxViewController */,
+				9FC843BD22328DEFBCAB1DA4A92108F7 /* MisterFusion */,
+				8B45C6C40F87066F3D2A32EDA233C5DD /* Pods */,
+				7C9ABB14AA54EDF01494E53CF2546669 /* SAInboxViewController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2B2B4861C96E82D68CB826E1 /* Sources */ = {
+		2F5909361CF833070955077B87249696 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A158AA1968614B32ADC56B2 /* Pods-dummy.m in Sources */,
+				626C3E6C72F9220D23300E8AAADD3EB1 /* SAInboxAnimatedTransitioningController.swift in Sources */,
+				B269CE3A7B8DB8FC21CCA181326D300A /* SAInboxDetailViewController.swift in Sources */,
+				5678EA6D29EE2519F157C0AC189A7B98 /* SAInboxTransitioningContainerView.swift in Sources */,
+				7DFBA6E2C10BD99EE6790292F357A287 /* SAInboxViewController-dummy.m in Sources */,
+				29DA59A602B49E8CF9AA7A2F5DF821FF /* SAInboxViewController.swift in Sources */,
+				6A6272D807913536F20DAEFF5D243F74 /* UIView+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EF57D13651DE4BB929837A13 /* Sources */ = {
+		8FB8101737FBA93B86E4C2016B3FD54A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8B73CED40EE782A424604D5 /* Pods-SAInboxViewController-dummy.m in Sources */,
-				37E649191B7ED01000FD54F7 /* SAInboxDetailViewController.swift in Sources */,
-				37E6491B1B7ED01800FD54F7 /* UIView+Utils.swift in Sources */,
-				37E6491C1B7ED01C00FD54F7 /* SAInboxTransitioningContainerView.swift in Sources */,
-				156A3504050EFA80D7856BA6 /* SAInboxViewController.swift in Sources */,
-				37E6491A1B7ED01400FD54F7 /* SAInboxAnimatedTransitioningController.swift in Sources */,
+				D94E68FAA19139BF9994C70FC8DF12C1 /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98819D7144BFC0B905DD9D19287ACEEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53EE8DE41682CE1D265BE8B60ED69A11 /* Array+MisterFusion.swift in Sources */,
+				22636CE1C55E8CA607798DEEABC3E8B7 /* MisterFusion-dummy.m in Sources */,
+				A03C84FA56C1EFBCE51BD48F9EBD5CD3 /* MisterFusion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E67982BB87FBE481953CBE2A /* PBXTargetDependency */ = {
+		0256D5C6E73D38075465FAB594030CC9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-SAInboxViewController";
-			target = 330052037D894F9414BAC15F /* Pods-SAInboxViewController */;
-			targetProxy = B657539B2493E12B111ABAE9 /* PBXContainerItemProxy */;
+			name = MisterFusion;
+			target = 9FC843BD22328DEFBCAB1DA4A92108F7 /* MisterFusion */;
+			targetProxy = BC365797FAAFA89D73766BE1AA43DB11 /* PBXContainerItemProxy */;
+		};
+		3C76BB19726D0BF6A192C0F11CF94056 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SAInboxViewController;
+			target = 7C9ABB14AA54EDF01494E53CF2546669 /* SAInboxViewController */;
+			targetProxy = 275FB0C41ACC6C1B97C7B5BCEA66E2F5 /* PBXContainerItemProxy */;
+		};
+		3EA4A68BFCE4A89E2712DDEE400A9C9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MisterFusion;
+			target = 9FC843BD22328DEFBCAB1DA4A92108F7 /* MisterFusion */;
+			targetProxy = 9CEFA958412093632A85AA58E8A8666C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		132D60ABCACA274F378BFDF5 /* Release */ = {
+		0A84E3C077DFDF0A259DD770FB7B2F29 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99C52F7628383DF672C7829F /* Pods.release.xcconfig */;
+			baseConfigurationReference = 03E3FE02E6B23F6359A53225B433B444 /* MisterFusion.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MisterFusion/MisterFusion-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MisterFusion/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MisterFusion/MisterFusion.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MisterFusion;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		558E5FEDC41FEFC9E3DA4A9A456E61CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33C14B0041B0FF9131CD618BF75064EC /* SAInboxViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SAInboxViewController/SAInboxViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SAInboxViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SAInboxViewController/SAInboxViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SAInboxViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7690E310419BB0B35C8A4CF8FEE343B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */;
+			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -322,6 +501,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -336,127 +516,7 @@
 			};
 			name = Release;
 		};
-		2233E78B23C253AE84347E27 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7796C3F62CFCB38DCDD4671C /* Pods.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8E4AE3C2B80057487B92B700 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8AC8F59453E1CF0D7300904 /* Pods-SAInboxViewController-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-SAInboxViewController/Pods-SAInboxViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-SAInboxViewController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-SAInboxViewController/Pods-SAInboxViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SAInboxViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		957ED8E222008A7F970F2EE7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		98C021777E260756C3102005 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8AC8F59453E1CF0D7300904 /* Pods-SAInboxViewController-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-SAInboxViewController/Pods-SAInboxViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-SAInboxViewController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-SAInboxViewController/Pods-SAInboxViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SAInboxViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C700682CA01FF472E54AF3C5 /* Debug */ = {
+		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -495,37 +555,165 @@
 			};
 			name = Debug;
 		};
+		BB9D8406934875C5E574A0219F10015A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03E3FE02E6B23F6359A53225B433B444 /* MisterFusion.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MisterFusion/MisterFusion-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MisterFusion/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MisterFusion/MisterFusion.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MisterFusion;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C9801742FFCAEBBCAFDDA3A4042609DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F068D6B21C97848E949A36F82EC06AB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33C14B0041B0FF9131CD618BF75064EC /* SAInboxViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SAInboxViewController/SAInboxViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SAInboxViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SAInboxViewController/SAInboxViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SAInboxViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		18260DAABB494EC3270B0B08 /* Build configuration list for PBXNativeTarget "Pods-SAInboxViewController" */ = {
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				98C021777E260756C3102005 /* Debug */,
-				8E4AE3C2B80057487B92B700 /* Release */,
+				A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */,
+				FB45FFD90572718D82AB9092B750F0CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45211CC5366F6252F43586F7 /* Build configuration list for PBXProject "Pods" */ = {
+		CAB79ED8220AF2A4A4719D9E0F6892BD /* Build configuration list for PBXNativeTarget "SAInboxViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C700682CA01FF472E54AF3C5 /* Debug */,
-				957ED8E222008A7F970F2EE7 /* Release */,
+				558E5FEDC41FEFC9E3DA4A9A456E61CE /* Debug */,
+				F068D6B21C97848E949A36F82EC06AB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7E199621B5F427CB7506D472 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		D527E849301E62CDDB55A973DEBA607C /* Build configuration list for PBXNativeTarget "MisterFusion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2233E78B23C253AE84347E27 /* Debug */,
-				132D60ABCACA274F378BFDF5 /* Release */,
+				0A84E3C077DFDF0A259DD770FB7B2F29 /* Debug */,
+				BB9D8406934875C5E574A0219F10015A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECA2A7C98C5069617EE5B613511A6177 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9801742FFCAEBBCAFDDA3A4042609DA /* Debug */,
+				7690E310419BB0B35C8A4CF8FEE343B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1F96FCC49037DE6867F26B55 /* Project object */;
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 }

@@ -107,9 +107,9 @@ extension SAInboxDetailViewController {
     func resetContentOffset(isLower isLower: Bool) {
         if isLower {
             tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentSize.height - tableView.bounds.size.height), animated: false)
-        } else {
-            tableView.setContentOffset(CGPointZero, animated: false)
+            return
         }
+        tableView.setContentOffset(CGPointZero, animated: false)
     }
     
     func handleSwipePanGesture(gesture: UIPanGestureRecognizer) {
@@ -121,23 +121,12 @@ extension SAInboxDetailViewController {
                 SAInboxAnimatedTransitioningController.sharedInstance.transitioningType = .SwipePop
                 
             case .Changed:
-                
-                var position =  translation.x
-                if position < 0 {
-                    position = 0
-                }
-                
+                let position = max(0, translation.x)
                 let rudderBanding = calculateRudderBanding(position, constant: 0.55, dimension: view.frame.size.width)
-                var headerPosition = defaultHeaderPosition.x +  rudderBanding
-                if headerPosition < defaultHeaderPosition.x {
-                    headerPosition = defaultHeaderPosition.x
-                }
+                let headerPosition = max(defaultHeaderPosition.x, defaultHeaderPosition.x + rudderBanding)
                 headerView.frame.origin.x = headerPosition
                 
-                var tableViewPosition = defaultTableViewPosition.x +  rudderBanding
-                if tableViewPosition < defaultTableViewPosition.x {
-                    tableViewPosition = defaultTableViewPosition.x
-                }
+                let tableViewPosition = max(defaultTableViewPosition.x, defaultTableViewPosition.x + rudderBanding)
                 tableView.frame.origin.x = tableViewPosition
                 
                 alphaView.alpha = 1 - min(rudderBanding / view.frame.size.width, 1)
@@ -168,22 +157,12 @@ extension SAInboxDetailViewController {
                 SAInboxAnimatedTransitioningController.sharedInstance.transitioningType = .HeaderPop
                 
             case .Changed:
-                var position = translation.y
-                if position < 0 {
-                    position = 0
-                }
-                
+                let position = max(0, translation.y)
                 let rudderBanding = calculateRudderBanding(position, constant: 0.55, dimension: view.frame.size.height)
-                var headerPosition = defaultHeaderPosition.y + rudderBanding
-                if headerPosition < defaultHeaderPosition.y {
-                    headerPosition = defaultHeaderPosition.y
-                }
+                let headerPosition = max(defaultHeaderPosition.y, defaultHeaderPosition.y + rudderBanding)
                 headerView.frame.origin.y = headerPosition
                 
-                var tableViewPosition = defaultTableViewPosition.y + rudderBanding
-                if tableViewPosition < defaultTableViewPosition.y {
-                    tableViewPosition = defaultTableViewPosition.y
-                }
+                let tableViewPosition = max(defaultTableViewPosition.y, defaultTableViewPosition.y + rudderBanding)
                 tableView.frame.origin.y = tableViewPosition
                 
                 SAInboxAnimatedTransitioningController.sharedInstance.transitioningContainerView.upperMoveToValue(rudderBanding)

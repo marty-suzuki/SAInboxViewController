@@ -1,8 +1,7 @@
 {
   "name": "SAInboxViewController",
-  "version": "0.1.0",
-  "summary": "A short description of SAInboxViewController.",
-  "description": "                       An optional longer description of SAInboxViewController\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
+  "version": "0.4.0",
+  "summary": "UIViewController subclass inspired by \"Inbox by google\" animated transitioning.",
   "homepage": "https://github.com/szk-atmosphere/SAInboxViewController",
   "license": "MIT",
   "authors": {
@@ -10,12 +9,17 @@
   },
   "source": {
     "git": "https://github.com/szk-atmosphere/SAInboxViewController.git",
-    "tag": "0.1.0"
+    "tag": "0.4.0"
   },
   "social_media_url": "https://twitter.com/SzkAtmosphere",
   "platforms": {
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": "SAInboxViewController/*.{swift}"
+  "source_files": "SAInboxViewController/*.{swift}",
+  "dependencies": {
+    "MisterFusion": [
+
+    ]
+  }
 }

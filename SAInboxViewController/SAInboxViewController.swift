@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MisterFusion
 
 public class SAInboxViewController: UIViewController {
     
@@ -39,14 +40,12 @@ public class SAInboxViewController: UIViewController {
         
         private func initialization() {
             navigationBar.translucent = false
-            navigationBar.translatesAutoresizingMaskIntoConstraints = false
-            addSubview(navigationBar)
-            self.addConstraints([
-                NSLayoutConstraint(item: navigationBar, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: SAInboxViewController.StatusBarHeight),
-                NSLayoutConstraint(item: navigationBar, attribute: .Left, relatedBy: .Equal, toItem: self, attribute: .Left, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: navigationBar, attribute: .Right, relatedBy: .Equal, toItem: self, attribute: .Right, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: navigationBar, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1, constant: 0)
-            ])
+            addLayoutSubview(navigationBar, andConstraints:
+                navigationBar.Top |+| SAInboxViewController.StatusBarHeight,
+                navigationBar.Left,
+                navigationBar.Right,
+                navigationBar.Bottom
+            )
             
             navigationBar.items?.append(navigationItem)
             
@@ -114,28 +113,22 @@ public extension SAInboxViewController {
         }
         
         headerView.applyAppearance(SAInboxViewController.appearance)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(headerView)
-        let headerViewHeightConstraint = NSLayoutConstraint(item: headerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: SAInboxViewController.HeaderViewHeight)
-        let headerViewTopSpaceConstraint = NSLayoutConstraint(item: headerView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0)
-        view.addConstraints([
-            NSLayoutConstraint(item: headerView, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: headerView, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1, constant: 0),
-            headerViewHeightConstraint,
-            headerViewTopSpaceConstraint
-        ])
-        self.headerViewHeightConstraint = headerViewHeightConstraint
-        self.headerViewTopSpaceConstraint = headerViewTopSpaceConstraint
+        let constraints = view.addLayoutSubview(headerView, andConstraints:
+            headerView.Height |=| self.dynamicType.HeaderViewHeight,
+            headerView.Top,
+            headerView.Right,
+            headerView.Left
+        )
+        headerViewHeightConstraint = constraints.firstAttribute(.Height).first
+        headerViewTopSpaceConstraint = constraints.firstAttribute(.Top).first
         
         tableView.delegate = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(tableView)
-        view.addConstraints([
-            NSLayoutConstraint(item: tableView, attribute: .Top, relatedBy: .Equal, toItem: headerView, attribute: .Bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: tableView, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: tableView, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: tableView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0)
-        ])
+        view.addLayoutSubview(tableView, andConstraints:
+            tableView.Top |==| headerView.Bottom,
+            tableView.Left,
+            tableView.Right,
+            tableView.Bottom
+        )
     }
     
     public override func viewWillAppear(animated: Bool) {
@@ -156,7 +149,7 @@ public extension SAInboxViewController {
 //MARK: Public Methods
 public extension SAInboxViewController {
     public func setHeaderViewHidden(hidden: Bool, animated: Bool) {
-        headerViewHeightConstraint?.constant = hidden ? 0 : SAInboxViewController.HeaderViewHeight
+        headerViewHeightConstraint?.constant = hidden ? 0 : self.dynamicType.HeaderViewHeight
         if animated {
             UIView.animateWithDuration(0.25) {
                 self.view.layoutIfNeeded()
@@ -171,15 +164,16 @@ extension SAInboxViewController: UITableViewDelegate {
     public func scrollViewDidScroll(scrollView: UIScrollView) {
         let contentOffsetY = scrollView.contentOffset.y
         if shouldHideHeaderView {
-            if contentOffsetY > 0 && contentOffsetY <= SAInboxViewController.HeaderViewHeight - SAInboxViewController.StatusBarHeight {
-                headerViewTopSpaceConstraint?.constant = -contentOffsetY
-                headerView.navigationBar.alpha = 1 - contentOffsetY / (SAInboxViewController.HeaderViewHeight - SAInboxViewController.StatusBarHeight)
-            } else if contentOffsetY > SAInboxViewController.HeaderViewHeight - SAInboxViewController.StatusBarHeight {
-                headerViewTopSpaceConstraint?.constant = -SAInboxViewController.HeaderViewHeight + SAInboxViewController.StatusBarHeight
-                headerView.navigationBar.alpha = 0
-            } else {
-                headerViewTopSpaceConstraint?.constant = 0
-                headerView.navigationBar.alpha = 1
+            switch contentOffsetY {
+                case let y where y > 0 && y <= (self.dynamicType.HeaderViewHeight - self.dynamicType.StatusBarHeight):
+                    headerViewTopSpaceConstraint?.constant = -y
+                    headerView.navigationBar.alpha = 1 - y / (self.dynamicType.HeaderViewHeight - self.dynamicType.StatusBarHeight)
+                case let y where y > self.dynamicType.HeaderViewHeight - self.dynamicType.StatusBarHeight:
+                    headerViewTopSpaceConstraint?.constant = -self.dynamicType.HeaderViewHeight + self.dynamicType.StatusBarHeight
+                    headerView.navigationBar.alpha = 0
+                default:
+                    headerViewTopSpaceConstraint?.constant = 0
+                    headerView.navigationBar.alpha = 1
             }
             headerView.layoutIfNeeded()
         }

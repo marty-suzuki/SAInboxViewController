@@ -1,14 +1,17 @@
 PODS:
-  - SAInboxViewController (0.1.0)
+  - MisterFusion (0.8.0)
+  - SAInboxViewController (0.4.0):
+    - MisterFusion
 
 DEPENDENCIES:
   - SAInboxViewController (from `../`)
 
 EXTERNAL SOURCES:
   SAInboxViewController:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  SAInboxViewController: 3eb7552ef77df057f24aff968a5640dffa2fdfbe
+  MisterFusion: 3b20851bc79eeaba59070922102f1bd2866dfe02
+  SAInboxViewController: f61579fc4d31c8adb6f2d7a1ae0f79b1fd36d327
 
-COCOAPODS: 0.36.1
+COCOAPODS: 0.39.0

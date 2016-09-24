@@ -50,7 +50,7 @@ public class SAInboxViewController: UIViewController {
             navigationBar.items?.append(navigationItem)
             
             closeButtonItem.target = self
-            closeButtonItem.action = "didTapCloseButton:"
+            closeButtonItem.action = #selector(HeaderView.didTapCloseButton(_:))
             closeButtonItem.title = "Close"
         }
         

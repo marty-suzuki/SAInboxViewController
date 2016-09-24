@@ -57,11 +57,11 @@ public extension SAInboxDetailViewController {
         view.backgroundColor = .whiteColor()
         automaticallyAdjustsScrollViewInsets = false
         
-        let headerPanGesture = UIPanGestureRecognizer(target: self, action: "handleHeaderPanGesture:")
+        let headerPanGesture = UIPanGestureRecognizer(target: self, action: #selector(SAInboxDetailViewController.handleHeaderPanGesture(_:)))
         headerView.addGestureRecognizer(headerPanGesture)
         self.headerPanGesture = headerPanGesture
         
-        let swipePanGesture = UIPanGestureRecognizer(target: self, action: "handleSwipePanGesture:")
+        let swipePanGesture = UIPanGestureRecognizer(target: self, action: #selector(SAInboxDetailViewController.handleSwipePanGesture(_:)))
         view.addGestureRecognizer(swipePanGesture)
         self.swipePanGesture = swipePanGesture
         

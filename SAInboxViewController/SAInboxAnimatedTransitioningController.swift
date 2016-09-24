@@ -22,32 +22,36 @@ public class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerA
     var transitioningType: TrantioningType = .Push
     var selectedCell: UITableViewCell?
     private var operation: UINavigationControllerOperation?
-}
 
-//MARK: - Public Methods
-public extension SAInboxAnimatedTransitioningController {
+    //MARK: - Public Methods
     public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.3
     }
     
     public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        guard let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else { return }
-        guard let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) else { return }
-        guard let contentView = transitionContext.containerView() else { return }
+        guard
+            let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
+            let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+        else { return }
+        
+        let contentView = transitionContext.containerView()
         guard let operation = operation else { return }
         contentView.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         
         let duration = transitionDuration(transitionContext)
         switch (operation) {
-            case .Push:
-                pushTransition(duration, transitionContext: transitionContext, transitioningType: transitioningType, transitioningContainerView: transitioningContainerView, contentView: contentView, toViewController: toViewController, fromViewController: fromViewController)
+        case .Push:
+            pushTransition(duration, transitionContext: transitionContext, transitioningType: transitioningType, transitioningContainerView: transitioningContainerView, contentView: contentView, toViewController: toViewController, fromViewController: fromViewController)
+            return
             
-            case .Pop:
-                popTransition(duration, transitionContext: transitionContext, transitioningType: transitioningType, transitioningContainerView: transitioningContainerView, contentView: contentView, toViewController: toViewController, fromViewController: fromViewController)
+        case .Pop:
+            popTransition(duration, transitionContext: transitionContext, transitioningType: transitioningType, transitioningContainerView: transitioningContainerView, contentView: contentView, toViewController: toViewController, fromViewController: fromViewController)
+            return
             
-            case .None:
-                break
+        default:
+            break
         }
+        transitionContext.completeTransition(true)
     }
     
     public func setOperation(operation: UINavigationControllerOperation) -> SAInboxAnimatedTransitioningController {
@@ -62,10 +66,8 @@ public extension SAInboxAnimatedTransitioningController {
         transitioningContainerView.headerViewOrigin = viewController.headerView.frame.origin
         transitioningContainerView.headerImageView.frame.origin.y = transitioningContainerView.headerViewOrigin.y
     }
-}
 
-//MARK: - Private Methods
-private extension SAInboxAnimatedTransitioningController {
+    //MARK: - Private Methods
     private func pushTransition(duration: NSTimeInterval, transitionContext: UIViewControllerContextTransitioning, transitioningType: TrantioningType, transitioningContainerView: SAInboxTransitioningContainerView, contentView: UIView, toViewController: UIViewController, fromViewController: UIViewController) {
         contentView.insertSubview(toViewController.view, aboveSubview: fromViewController.view)
         contentView.addSubview(transitioningContainerView)

@@ -22,12 +22,13 @@ You can launch sample project on web browser from [here](https://appetize.io/app
 - [x] Left edge swiping transitioning
 - [x] HeaderView hide animation
 - [ ] Change StatusBar color with scrolling
+- [x] Support Swift2.3
 
 ## Installation
 
 #### CocoaPods
 
-SAHistoryNavigationViewController is available through [CocoaPods](http://cocoapods.org). If you have cocoapods 0.36.1 or greater, you can install
+SAHistoryNavigationViewController is available through [CocoaPods](http://cocoapods.org). If you have cocoapods 1.1.0.rc.2 or greater, you can install
 it, simply add the following line to your Podfile:
 
 	pod "SAInboxViewController"
@@ -112,7 +113,7 @@ override func viewDidLoad() {
 
 ## Requirements
 
-- Xcode 7.0 or greater
+- Xcode 8.0 or greater
 - iOS 8.0 or greater
 - [MisterFusion](https://github.com/szk-atmosphere/MisterFusion) (Swift DSL for AutoLayout)
 

@@ -11,9 +11,13 @@ import UIKit
 class SAInboxTransitioningContainerView: UIView {
     
     //MARK: - Inner Structs
-    private struct ImageInformation {
+    private struct Const {
+        static let imageTag: Int = 10001
+    }
+    
+    fileprivate struct ImageInformation {
         enum Position {
-            case Below, Above, Target
+            case below, above, target
         }
         
         let tag: Int
@@ -24,10 +28,10 @@ class SAInboxTransitioningContainerView: UIView {
     }
     
     //MARK: - Instance Properties
-    private var imageInformations: [ImageInformation] = []
-    private(set) var targetPosition: CGPoint?
-    private(set) var targetHeight: CGFloat?
-    private(set) var headerImageView = UIImageView()
+    fileprivate var imageInformations: [ImageInformation] = []
+    fileprivate(set) var targetPosition: CGPoint?
+    fileprivate(set) var targetHeight: CGFloat?
+    fileprivate(set) var headerImageView = UIImageView()
     var headerImage: UIImage? {
         set {
             headerImageView.image = newValue
@@ -38,51 +42,49 @@ class SAInboxTransitioningContainerView: UIView {
             return headerImageView.image
         }
     }
-    var headerViewOrigin: CGPoint = CGPointZero
+    var headerViewOrigin: CGPoint = CGPoint.zero
     
     init() {
-        super.init(frame: CGRectZero)
-        backgroundColor = .clearColor()
+        super.init(frame: CGRect.zero)
+        backgroundColor = .clear
     }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
 
-//MARK: - Internal Methods
-extension SAInboxTransitioningContainerView {
-    func setupContainer(targetCell: UITableViewCell, cells: [UITableViewCell], superview: UIView) {
-        var imageTag: Int = 10001
+    //MARK: - Internal Methods
+    func setupContainer(_ targetCell: UITableViewCell, cells: [UITableViewCell], superview: UIView) {
         var detectTarget = false
-        cells.forEach {
-            guard let point = $0.superview?.convertPoint($0.frame.origin, toView: superview) else { return }
+        imageInformations = cells.enumerated().flatMap { (offset: Int, element: UITableViewCell) -> ImageInformation? in
+            guard let point = element.superview?.convert(element.frame.origin, to: superview) else { return nil }
             let isTarget: Bool
-            if targetCell == $0 {
+            if targetCell == element {
                 isTarget = true
                 detectTarget = true
                 targetPosition = point
-                targetHeight = CGRectGetHeight($0.frame)
+                targetHeight = element.frame.height
             } else {
                 isTarget = false
             }
             
-            let imageView = UIImageView(frame: $0.bounds)
-            $0.selectionStyle = .None
-            imageView.image = $0.screenshotImage()
-            $0.selectionStyle = .Default
-            imageView.tag = imageTag
+            let tag = Const.imageTag + offset
+            let imageView = UIImageView(frame: element.bounds)
+            element.selectionStyle = .none
+            imageView.image = element.screenshotImage()
+            element.selectionStyle = .default
+            imageView.tag = tag
             imageView.frame.origin = point
             addSubview(imageView)
             
-            let position: ImageInformation.Position = isTarget ? .Target : !detectTarget ? .Below : .Above
-            imageInformations += [ImageInformation(tag: imageTag++, initialOrigin: point, height: CGRectGetHeight($0.frame), isTarget: isTarget, position: position)]
+            let position: ImageInformation.Position = isTarget ? .target : !detectTarget ? .below : .above
+            return ImageInformation(tag: tag, initialOrigin: point, height: element.frame.height, isTarget: isTarget, position: position)
         }
     }
     
     func resetContainer() {
         subviews.forEach { $0.removeFromSuperview() }
-        imageInformations.removeAll(keepCapacity: false)
+        imageInformations.removeAll(keepingCapacity: false)
         targetPosition = nil
     }
     
@@ -111,16 +113,16 @@ extension SAInboxTransitioningContainerView {
         }
     }
     
-    func upperMoveToValue(value: CGFloat) {
+    func upperMoveToValue(_ value: CGFloat) {
         imageInformations.forEach {
-            guard let targetPosition = targetPosition where targetPosition.y >= $0.initialOrigin.y else { return }
+            guard let targetPosition = targetPosition , targetPosition.y >= $0.initialOrigin.y else { return }
             viewWithTag($0.tag)?.frame.origin.y = $0.initialOrigin.y - targetPosition.y + value
         }
     }
     
-    func lowerMoveToValue(value: CGFloat) {
+    func lowerMoveToValue(_ value: CGFloat) {
         imageInformations.forEach {
-            guard let targetPosition = targetPosition where targetPosition.y < $0.initialOrigin.y else { return }
+            guard let targetPosition = targetPosition , targetPosition.y < $0.initialOrigin.y else { return }
             viewWithTag($0.tag)?.frame.origin.y = frame.size.height + ($0.initialOrigin.y - targetPosition.y) - $0.height - value
         }
     }

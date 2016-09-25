@@ -11,7 +11,7 @@ import SAInboxViewController
 
 class FeedViewController: SAInboxViewController {
     
-    private var contents: [FeedContent] = [
+    fileprivate var contents: [FeedContent] = [
         FeedContent(username: "Alex", text: "This is SAInboxViewController."),
         FeedContent(username: "Brian", text: "It has Inbox like transitioning."),
         FeedContent(username: "Cassy", text: "You can come back to rootViewController"),
@@ -30,23 +30,23 @@ class FeedViewController: SAInboxViewController {
         // Do any additional setup after loading the view.
         title = "Feed"
         
-        navigationController?.navigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
         
-        let nib = UINib(nibName: FeedViewCell.kCellIdentifier, bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: FeedViewCell.kCellIdentifier)
-        tableView.separatorInset = UIEdgeInsetsZero
-        tableView.layoutMargins = UIEdgeInsetsZero
+        let nib = UINib(nibName: FeedViewCell.cellIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: FeedViewCell.cellIdentifier)
+        tableView.separatorInset = .zero
+        tableView.layoutMargins = .zero
         tableView.dataSource = self
         tableView.delegate = self
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNeedsStatusBarAppearanceUpdate()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,8 +61,8 @@ class FeedViewController: SAInboxViewController {
 }
 
 extension FeedViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(FeedViewCell.kCellIdentifier)!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FeedViewCell.cellIdentifier)!
         
         if let cell = cell as? FeedViewCell {
             let num = indexPath.row % 5 + 1
@@ -75,35 +75,37 @@ extension FeedViewController: UITableViewDataSource {
             cell.setMainText(content.text)
         }
         
-        cell.layoutMargins = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsets.zero
         
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contents.count
     }
 }
 
 //MARK: - UITableViewDelegate Methods
 extension FeedViewController {
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    @objc(tableView:didSelectRowAtIndexPath:)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         
         let viewController = DetailViewController()
-        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? FeedViewCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? FeedViewCell {
             viewController.iconImage = cell.iconImageView?.image
         }
         
-        if let cell = tableView.cellForRowAtIndexPath(indexPath), image = headerView.screenshotImage() {
+        if let cell = tableView.cellForRow(at: indexPath), let image = headerView.screenshotImage() {
             SAInboxAnimatedTransitioningController.sharedInstance.configureCotainerView(self, cell: cell, cells: tableView.visibleCells, headerImage: image)
         }
         
-        let content = contents[indexPath.row]
+        let content = contents[(indexPath as NSIndexPath).row]
         viewController.username = content.username
         viewController.text = content.text
         

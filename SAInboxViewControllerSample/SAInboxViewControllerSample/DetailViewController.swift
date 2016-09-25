@@ -22,28 +22,28 @@ class DetailViewController: SAInboxDetailViewController {
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         
-        let nib = UINib(nibName: DetailViewCell.kCellIdentifier, bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: DetailViewCell.kCellIdentifier)
+        let nib = UINib(nibName: DetailViewCell.cellIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: DetailViewCell.cellIdentifier)
         
         title = username
         
-        tableView.separatorInset = UIEdgeInsetsZero
-        tableView.layoutMargins = UIEdgeInsetsZero
+        tableView.separatorInset = .zero
+        tableView.layoutMargins = .zero
         
         let color = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
-        appearance.barTintColor = .whiteColor()
+        appearance.barTintColor = .white
         appearance.tintColor = color
         appearance.titleTextAttributes = [NSForegroundColorAttributeName : color]
         enabledViewControllerBasedAppearance = true
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNeedsStatusBarAppearanceUpdate()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .Default
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,8 +53,8 @@ class DetailViewController: SAInboxDetailViewController {
 }
 
 extension DetailViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(DetailViewCell.kCellIdentifier)!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DetailViewCell.cellIdentifier)!
         
         if let cell = cell as? DetailViewCell {
             cell.setIconImage(iconImage)
@@ -62,16 +62,17 @@ extension DetailViewController: UITableViewDataSource {
             cell.textView.text = text
         }
         
-        cell.layoutMargins = UIEdgeInsetsZero
+        cell.layoutMargins = .zero
         
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return CGRectGetHeight(tableView.frame) * 1.5
+    @objc(tableView:heightForRowAtIndexPath:)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.height * 1.5
     }
 }

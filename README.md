@@ -23,6 +23,7 @@ You can launch sample project on web browser from [here](https://appetize.io/app
 - [x] HeaderView hide animation
 - [ ] Change StatusBar color with scrolling
 - [x] Support Swift2.3
+- [x] Support Siwft3
 
 ## Installation
 
@@ -66,10 +67,11 @@ override func scrollViewDidScroll(scrollView: UIScrollView) {
 If you want to present ViewController from rootViewController, implement `func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)` like this.
 
 ```swift
-func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+@objc(tableView:didSelectRowAtIndexPath:)
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let viewController = SAInboxDetailViewController()
-    if let cell = tableView.cellForRowAtIndexPath(indexPath), cells = tableView.visibleCells() as? [UITableViewCell] {
-        SAInboxAnimatedTransitioningController.sharedInstance().configureCotainerView(view, cell: cell, cells: cells, headerImage: headerView.screenshotImage())
+    if let cell = tableView.cellForRow(at: indexPath), let image = headerView.screenshotImage() {
+        SAInboxAnimatedTransitioningController.sharedInstance.configureCotainerView(self, cell: cell, cells: tableView.visibleCells, headerImage: image)
     }
     navigationController?.pushViewController(viewController, animated: true)
 }
@@ -78,8 +80,8 @@ func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSInde
 Implement `UINavigationControllerDelegate` methods, like this.
 
 ```swift
-func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    return SAInboxAnimatedTransitioningController.sharedInstance().setOperation(operation)
+func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return SAInboxAnimatedTransitioningController.sharedInstance.setOperation(operation)
 }
 ```
 
@@ -91,9 +93,9 @@ There are 2 ways to change HeaderView Appearance.
 SAInboxViewController class has Appearance property
 
 ```swift
-SAInboxViewController.appearance.barTintColor = .blackColor()
-SAInboxViewController.appearance.tintColor = .whiteColor()
-SAInboxViewController.appearance.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+SAInboxViewController.appearance.barTintColor = .black
+SAInboxViewController.appearance.tintColor = .white
+SAInboxViewController.appearance.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
 ```
 
 #### ViewController Base Appearance
@@ -102,9 +104,9 @@ SAInboxViewController instance has Appearance property.
 ```swift
 override func viewDidLoad() {
     super.viewDidLoad()
-    appearance.barTintColor = .whiteColor()
-    appearance.tintColor = .blackColor()
-    appearance.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor()]
+    appearance.barTintColor = .white
+    appearance.tintColor = .black
+    appearance.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
 
     //Do not forget to set true
     enabledViewControllerBasedAppearance = true

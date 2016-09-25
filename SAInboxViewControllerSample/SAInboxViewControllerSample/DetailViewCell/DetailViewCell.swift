@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewCell: UITableViewCell {
 
-    static let kCellIdentifier = "DetailViewCell"
+    static let cellIdentifier = "DetailViewCell"
     
     @IBOutlet weak var iconButton: UIButton!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -22,29 +22,29 @@ class DetailViewCell: UITableViewCell {
         // Initialization code
         
         iconButton.layer.masksToBounds = true
-        selectionStyle = .None
+        selectionStyle = .none
         textView.contentInset = UIEdgeInsets(top: -9, left: -4, bottom: 0, right: 0)
-        textView.scrollEnabled = false
-        mainTextView.dataDetectorTypes = .Link
-        mainTextView.editable = false
-        mainTextView.scrollEnabled = false
+        textView.isScrollEnabled = false
+        mainTextView.dataDetectorTypes = .link
+        mainTextView.isEditable = false
+        mainTextView.isScrollEnabled = false
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        iconButton.layer.cornerRadius = CGRectGetWidth(iconButton.frame) / 2
+        iconButton.layer.cornerRadius = iconButton.frame.width / 2
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func setIconImage(image: UIImage?) {
+    func setIconImage(_ image: UIImage?) {
         if let image = image {
-            iconButton.setImage(image, forState: .Normal)
+            iconButton.setImage(image, for: UIControlState())
         }
     }
 }

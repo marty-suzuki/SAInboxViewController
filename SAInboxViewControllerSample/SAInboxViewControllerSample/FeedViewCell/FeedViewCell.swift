@@ -11,7 +11,7 @@ import QuartzCore
 
 class FeedViewCell: UITableViewCell {
 
-    static let kCellIdentifier = "FeedViewCell"
+    static let cellIdentifier = "FeedViewCell"
     
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -25,24 +25,24 @@ class FeedViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        iconImageView.layer.cornerRadius = CGRectGetWidth(iconImageView.frame) / 2
+        iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func setIconImage(image: UIImage) {
+    func setIconImage(_ image: UIImage) {
         iconImageView.image = image
     }
     
-    func setMainText(text: String) {
+    func setMainText(_ text: String) {
         mainTextLabel.text = text
     }
     
-    func setUsername(name: String) {
+    func setUsername(_ name: String) {
         usernameLabel.text = name
     }
 }

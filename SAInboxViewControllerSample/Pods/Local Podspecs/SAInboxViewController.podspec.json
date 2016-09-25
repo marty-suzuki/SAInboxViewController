@@ -1,6 +1,6 @@
 {
   "name": "SAInboxViewController",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "summary": "UIViewController subclass inspired by \"Inbox by google\" animated transitioning.",
   "homepage": "https://github.com/marty-suzuki/SAInboxViewController",
   "license": "MIT",
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/marty-suzuki/SAInboxViewController.git",
-    "tag": "0.6.0"
+    "tag": "0.7.0"
   },
   "social_media_url": "https://twitter.com/marty_suzuki",
   "platforms": {
@@ -19,7 +19,7 @@
   "source_files": "SAInboxViewController/*.{swift}",
   "dependencies": {
     "MisterFusion": [
-      "~> 1.4.0"
+
     ]
   }
 }

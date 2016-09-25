@@ -8,43 +8,43 @@
 
 import UIKit
 
-public class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerAnimatedTransitioning {
+open class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerAnimatedTransitioning {
     
     enum TrantioningType {
-        case Push, SwipePop, BottomPop, TopPop, HeaderPop
+        case push, swipePop, bottomPop, topPop, headerPop
     }
     
     //MARK: - Static Properties
-    public static let sharedInstance = SAInboxAnimatedTransitioningController()
+    open static let sharedInstance = SAInboxAnimatedTransitioningController()
     
     //MARK: - Instance Properties
     let transitioningContainerView = SAInboxTransitioningContainerView()
-    var transitioningType: TrantioningType = .Push
+    var transitioningType: TrantioningType = .push
     var selectedCell: UITableViewCell?
-    private var operation: UINavigationControllerOperation?
+    fileprivate var operation: UINavigationControllerOperation?
 
     //MARK: - Public Methods
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }
     
-    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
-            let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
-            let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+            let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
+            let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
         else { return }
         
-        let contentView = transitionContext.containerView()
+        let contentView = transitionContext.containerView
         guard let operation = operation else { return }
         contentView.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         
-        let duration = transitionDuration(transitionContext)
+        let duration = transitionDuration(using: transitionContext)
         switch (operation) {
-        case .Push:
+        case .push:
             pushTransition(duration, transitionContext: transitionContext, transitioningType: transitioningType, transitioningContainerView: transitioningContainerView, contentView: contentView, toViewController: toViewController, fromViewController: fromViewController)
             return
             
-        case .Pop:
+        case .pop:
             popTransition(duration, transitionContext: transitionContext, transitioningType: transitioningType, transitioningContainerView: transitioningContainerView, contentView: contentView, toViewController: toViewController, fromViewController: fromViewController)
             return
             
@@ -54,12 +54,12 @@ public class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerA
         transitionContext.completeTransition(true)
     }
     
-    public func setOperation(operation: UINavigationControllerOperation) -> SAInboxAnimatedTransitioningController {
+    open func setOperation(_ operation: UINavigationControllerOperation) -> SAInboxAnimatedTransitioningController {
         self.operation = operation
         return self
     }
     
-    public func configureCotainerView(viewController: SAInboxViewController, cell: UITableViewCell, cells: [UITableViewCell], headerImage: UIImage) {
+    open func configureCotainerView(_ viewController: SAInboxViewController, cell: UITableViewCell, cells: [UITableViewCell], headerImage: UIImage) {
         transitioningContainerView.frame = viewController.view.bounds
         transitioningContainerView.setupContainer(cell, cells:cells, superview: viewController.view)
         transitioningContainerView.headerImage = headerImage
@@ -68,7 +68,7 @@ public class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerA
     }
 
     //MARK: - Private Methods
-    private func pushTransition(duration: NSTimeInterval, transitionContext: UIViewControllerContextTransitioning, transitioningType: TrantioningType, transitioningContainerView: SAInboxTransitioningContainerView, contentView: UIView, toViewController: UIViewController, fromViewController: UIViewController) {
+    fileprivate func pushTransition(_ duration: TimeInterval, transitionContext: UIViewControllerContextTransitioning, transitioningType: TrantioningType, transitioningContainerView: SAInboxTransitioningContainerView, contentView: UIView, toViewController: UIViewController, fromViewController: UIViewController) {
         contentView.insertSubview(toViewController.view, aboveSubview: fromViewController.view)
         contentView.addSubview(transitioningContainerView)
         
@@ -76,40 +76,40 @@ public class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerA
             toViewController.view.frame.origin = targetPosition
         }
         
-        UIView.animateWithDuration(duration, animations: {
+        UIView.animate(withDuration: duration, animations: {
             transitioningContainerView.open()
             toViewController.view.frame.origin.y = 0
             transitioningContainerView.headerImageView.frame.origin.y = -transitioningContainerView.headerImageView.frame.size.height
-        }) { finished in
+        }, completion: { finished in
             transitioningContainerView.removeFromSuperview()
             transitionContext.completeTransition(true)
-        }
+        }) 
     }
     
-    private func popTransition(duration: NSTimeInterval, transitionContext: UIViewControllerContextTransitioning, transitioningType: TrantioningType, transitioningContainerView: SAInboxTransitioningContainerView, contentView: UIView, toViewController: UIViewController, fromViewController: UIViewController) {
+    fileprivate func popTransition(_ duration: TimeInterval, transitionContext: UIViewControllerContextTransitioning, transitioningType: TrantioningType, transitioningContainerView: SAInboxTransitioningContainerView, contentView: UIView, toViewController: UIViewController, fromViewController: UIViewController) {
         contentView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
         contentView.addSubview(transitioningContainerView)
         
         guard let fromViewController = fromViewController as? SAInboxDetailViewController else { return }
         
         fromViewController.view.frame.origin = fromViewController.endHeaderPosition
-        toViewController.view.hidden = true
+        toViewController.view.isHidden = true
         
-        if transitioningType == .TopPop || transitioningType == .HeaderPop {
+        if transitioningType == .topPop || transitioningType == .headerPop {
             fromViewController.resetContentOffset(isLower: false)
         }
     
-        UIView.animateWithDuration(duration, animations: {
-            if let targetPosition = transitioningContainerView.targetPosition, targetHeight = transitioningContainerView.targetHeight {
-                if transitioningType == .BottomPop {
+        UIView.animate(withDuration: duration, animations: {
+            if let targetPosition = transitioningContainerView.targetPosition, let targetHeight = transitioningContainerView.targetHeight {
+                if transitioningType == .bottomPop {
                     fromViewController.view.frame.origin.y = -(fromViewController.view.frame.size.height - targetPosition.y) + targetHeight
-                } else if transitioningType == .TopPop || transitioningType == .HeaderPop {
+                } else if transitioningType == .topPop || transitioningType == .headerPop {
                     fromViewController.view.frame.origin.y = targetPosition.y
                 }
             }
             transitioningContainerView.headerImageView.frame.origin.y = transitioningContainerView.headerViewOrigin.y
             
-            if transitioningType == .BottomPop {
+            if transitioningType == .bottomPop {
                 fromViewController.resetContentOffset(isLower: true)
             }
             
@@ -117,11 +117,11 @@ public class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerA
             
             fromViewController.view.frame.origin.x = 0
             
-        }) { finished in
-            toViewController.view.hidden = false
+        }, completion: { finished in
+            toViewController.view.isHidden = false
             transitioningContainerView.resetContainer()
             transitioningContainerView.removeFromSuperview()
             transitionContext.completeTransition(true)
-        }
+        }) 
     }
 }

@@ -15,20 +15,26 @@ import UIKit
 open class SAInboxDetailViewController: SAInboxViewController {
     
     //MARK: Static Properties
-    static fileprivate let kCellIdentifier = "Cell";
-    static fileprivate let kStandardValue = UIScreen.main.bounds.height * 0.2
+    private struct Const {
+        static let cellIdentifier = "Cell";
+        static let standardValue = UIScreen.main.bounds.height * 0.2
+    }
     
     //MARK: Instatnce Properties
-    fileprivate var headerPanGesture: UIPanGestureRecognizer?
-    fileprivate var swipePanGesture: UIPanGestureRecognizer?
-    fileprivate var stopScrolling = false
+    private lazy var headerPanGesture: UIPanGestureRecognizer = {
+        return UIPanGestureRecognizer(target: self, action: #selector(SAInboxDetailViewController.handleHeaderPanGesture(_:)))
+    }()
+    private lazy var swipePanGesture: UIPanGestureRecognizer = {
+        return UIPanGestureRecognizer(target: self, action: #selector(SAInboxDetailViewController.handleSwipePanGesture(_:)))
+    }()
+    private var stopScrolling = false
     
-    fileprivate var defaultHeaderPosition: CGPoint = CGPoint.zero
-    fileprivate var defaultTableViewPosition: CGPoint = CGPoint.zero
+    private var defaultHeaderPosition: CGPoint = .zero
+    private var defaultTableViewPosition: CGPoint = .zero
     
     var thumbImage: UIImage?
-    fileprivate(set) var endHeaderPosition: CGPoint = CGPoint.zero
-    fileprivate(set) var endTableViewPosition: CGPoint = CGPoint.zero
+    private(set) var endHeaderPosition: CGPoint = .zero
+    private(set) var endTableViewPosition: CGPoint = .zero
     
     open weak var delegate: SAInboxDetailViewControllerDelegate?
     
@@ -55,20 +61,15 @@ open class SAInboxDetailViewController: SAInboxViewController {
         view.backgroundColor = .white
         automaticallyAdjustsScrollViewInsets = false
         
-        let headerPanGesture = UIPanGestureRecognizer(target: self, action: #selector(SAInboxDetailViewController.handleHeaderPanGesture(_:)))
         headerView.addGestureRecognizer(headerPanGesture)
-        self.headerPanGesture = headerPanGesture
-        
-        let swipePanGesture = UIPanGestureRecognizer(target: self, action: #selector(SAInboxDetailViewController.handleSwipePanGesture(_:)))
         view.addGestureRecognizer(swipePanGesture)
-        self.swipePanGesture = swipePanGesture
         
         shouldHideHeaderView = false
     }
     
     override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        view.insertSubview(SAInboxAnimatedTransitioningController.sharedInstance.transitioningContainerView, belowSubview: tableView)
+        view.insertSubview(SAInboxAnimatedTransitioningController.shared.transitioningContainerView, belowSubview: tableView)
         setupAlphaView()
         view.bringSubview(toFront: headerView)
     }
@@ -112,7 +113,7 @@ open class SAInboxDetailViewController: SAInboxViewController {
         
         switch gesture.state {
             case .began:
-                SAInboxAnimatedTransitioningController.sharedInstance.transitioningType = .swipePop
+                SAInboxAnimatedTransitioningController.shared.transitioningType = .swipePop
                 
             case .changed:
                 let position = max(0, translation.x)
@@ -148,7 +149,7 @@ open class SAInboxDetailViewController: SAInboxViewController {
         
         switch gesture.state {
             case .began:
-                SAInboxAnimatedTransitioningController.sharedInstance.transitioningType = .headerPop
+                SAInboxAnimatedTransitioningController.shared.transitioningType = .headerPop
                 
             case .changed:
                 let position = max(0, translation.y)
@@ -159,7 +160,7 @@ open class SAInboxDetailViewController: SAInboxViewController {
                 let tableViewPosition = max(defaultTableViewPosition.y, defaultTableViewPosition.y + rudderBanding)
                 tableView.frame.origin.y = tableViewPosition
                 
-                SAInboxAnimatedTransitioningController.sharedInstance.transitioningContainerView.upperMoveToValue(rudderBanding)
+                SAInboxAnimatedTransitioningController.shared.transitioningContainerView.upperMoveToValue(rudderBanding)
                 
                 alphaView.alpha = 1 - min(1, (rudderBanding / 180))
                 
@@ -172,7 +173,7 @@ open class SAInboxDetailViewController: SAInboxViewController {
                     UIView.animate(withDuration: 0.25, animations: {
                         self.headerView.frame.origin = self.defaultHeaderPosition
                         self.tableView.frame.origin = self.defaultTableViewPosition
-                        SAInboxAnimatedTransitioningController.sharedInstance.transitioningContainerView.upperMoveToValue(0)
+                        SAInboxAnimatedTransitioningController.shared.transitioningContainerView.upperMoveToValue(0)
                         self.alphaView.alpha = 1
                     }) 
                 }
@@ -181,15 +182,13 @@ open class SAInboxDetailViewController: SAInboxViewController {
                 break
         }
     }
-}
 
-//MARK: - UITableViewDelegate Methods
-extension SAInboxDetailViewController {
+    //MARK: - UITableViewDelegate Methods
     open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let yOffset = scrollView.contentOffset.y
         let value = yOffset - (scrollView.contentSize.height - scrollView.bounds.size.height)
         
-        let standardValue = SAInboxDetailViewController.kStandardValue
+        let standardValue = Const.standardValue
         if value > standardValue || yOffset < -standardValue {
             endHeaderPosition = headerView.frame.origin
             endTableViewPosition = tableView.frame.origin
@@ -217,8 +216,8 @@ extension SAInboxDetailViewController {
             return
         }
         
-        let standardValue = SAInboxDetailViewController.kStandardValue
-        let transitioningController = SAInboxAnimatedTransitioningController.sharedInstance
+        let standardValue = Const.standardValue
+        let transitioningController = SAInboxAnimatedTransitioningController.shared
         let value = yOffset - (scrollView.contentSize.height - scrollView.bounds.size.height)
         let transitioningContainerView = transitioningController.transitioningContainerView
         if  value >= 0  {

@@ -15,7 +15,7 @@ class SAInboxTransitioningContainerView: UIView {
         static let imageTag: Int = 10001
     }
     
-    fileprivate struct ImageInformation {
+    private struct ImageInformation {
         enum Position {
             case below, above, target
         }
@@ -28,10 +28,10 @@ class SAInboxTransitioningContainerView: UIView {
     }
     
     //MARK: - Instance Properties
-    fileprivate var imageInformations: [ImageInformation] = []
-    fileprivate(set) var targetPosition: CGPoint?
-    fileprivate(set) var targetHeight: CGFloat?
-    fileprivate(set) var headerImageView = UIImageView()
+    private var imageInformations: [ImageInformation] = []
+    private(set) var targetPosition: CGPoint?
+    private(set) var targetHeight: CGFloat?
+    private(set) var headerImageView = UIImageView()
     var headerImage: UIImage? {
         set {
             headerImageView.image = newValue
@@ -42,10 +42,10 @@ class SAInboxTransitioningContainerView: UIView {
             return headerImageView.image
         }
     }
-    var headerViewOrigin: CGPoint = CGPoint.zero
+    var headerViewOrigin: CGPoint = .zero
     
     init() {
-        super.init(frame: CGRect.zero)
+        super.init(frame: .zero)
         backgroundColor = .clear
     }
     

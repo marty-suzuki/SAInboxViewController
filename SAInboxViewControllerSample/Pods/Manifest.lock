@@ -1,5 +1,5 @@
 PODS:
-  - MisterFusion (2.0.1)
+  - MisterFusion (2.2.0)
   - SAInboxViewController (0.7.0):
     - MisterFusion
 
@@ -11,9 +11,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MisterFusion: d42cac7afe8318c282bcda93396eba0aef45d30e
+  MisterFusion: f243f4db57c523b5f55d7d9df6a298ffaac8695e
   SAInboxViewController: 41d3d5eec9047c045bef1832591f76a7a016059d
 
 PODFILE CHECKSUM: a1ce94f9632c45a57a30a20858781bd1b35a7147
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.2.0

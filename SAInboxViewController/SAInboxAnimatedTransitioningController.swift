@@ -8,27 +8,27 @@
 
 import UIKit
 
-open class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerAnimatedTransitioning {
+public class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerAnimatedTransitioning {
     
     enum TrantioningType {
         case push, swipePop, bottomPop, topPop, headerPop
     }
     
     //MARK: - Static Properties
-    open static let sharedInstance = SAInboxAnimatedTransitioningController()
+    public static let shared = SAInboxAnimatedTransitioningController()
     
     //MARK: - Instance Properties
     let transitioningContainerView = SAInboxTransitioningContainerView()
     var transitioningType: TrantioningType = .push
     var selectedCell: UITableViewCell?
-    fileprivate var operation: UINavigationControllerOperation?
+    private var operation: UINavigationControllerOperation?
 
     //MARK: - Public Methods
-    open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }
     
-    open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
             let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
             let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
@@ -54,12 +54,12 @@ open class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerAni
         transitionContext.completeTransition(true)
     }
     
-    open func setOperation(_ operation: UINavigationControllerOperation) -> SAInboxAnimatedTransitioningController {
+    public func setOperation(_ operation: UINavigationControllerOperation) -> SAInboxAnimatedTransitioningController {
         self.operation = operation
         return self
     }
     
-    open func configureCotainerView(_ viewController: SAInboxViewController, cell: UITableViewCell, cells: [UITableViewCell], headerImage: UIImage) {
+    public func configureCotainerView(_ viewController: SAInboxViewController, cell: UITableViewCell, cells: [UITableViewCell], headerImage: UIImage) {
         transitioningContainerView.frame = viewController.view.bounds
         transitioningContainerView.setupContainer(cell, cells:cells, superview: viewController.view)
         transitioningContainerView.headerImage = headerImage
@@ -67,8 +67,7 @@ open class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerAni
         transitioningContainerView.headerImageView.frame.origin.y = transitioningContainerView.headerViewOrigin.y
     }
 
-    //MARK: - Private Methods
-    fileprivate func pushTransition(_ duration: TimeInterval, transitionContext: UIViewControllerContextTransitioning, transitioningType: TrantioningType, transitioningContainerView: SAInboxTransitioningContainerView, contentView: UIView, toViewController: UIViewController, fromViewController: UIViewController) {
+    private func pushTransition(_ duration: TimeInterval, transitionContext: UIViewControllerContextTransitioning, transitioningType: TrantioningType, transitioningContainerView: SAInboxTransitioningContainerView, contentView: UIView, toViewController: UIViewController, fromViewController: UIViewController) {
         contentView.insertSubview(toViewController.view, aboveSubview: fromViewController.view)
         contentView.addSubview(transitioningContainerView)
         
@@ -86,7 +85,7 @@ open class SAInboxAnimatedTransitioningController: NSObject, UIViewControllerAni
         }) 
     }
     
-    fileprivate func popTransition(_ duration: TimeInterval, transitionContext: UIViewControllerContextTransitioning, transitioningType: TrantioningType, transitioningContainerView: SAInboxTransitioningContainerView, contentView: UIView, toViewController: UIViewController, fromViewController: UIViewController) {
+    private func popTransition(_ duration: TimeInterval, transitionContext: UIViewControllerContextTransitioning, transitioningType: TrantioningType, transitioningContainerView: SAInboxTransitioningContainerView, contentView: UIView, toViewController: UIViewController, fromViewController: UIViewController) {
         contentView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
         contentView.addSubview(transitioningContainerView)
         

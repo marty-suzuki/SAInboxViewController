@@ -22,14 +22,14 @@ You can launch sample project on web browser from [here](https://appetize.io/app
 - [x] Left edge swiping transitioning
 - [x] HeaderView hide animation
 - [ ] Change StatusBar color with scrolling
-- [x] Support Swift2.3
-- [x] Support Siwft3
+- [x] Support Swift3
+- [x] Support Siwft3.1
 
 ## Installation
 
 #### CocoaPods
 
-SAHistoryNavigationViewController is available through [CocoaPods](http://cocoapods.org). If you have cocoapods 1.1.0.rc.2 or greater, you can install
+SAHistoryNavigationViewController is available through [CocoaPods](http://cocoapods.org). If you have cocoapods 1.2.0 or greater, you can install
 it, simply add the following line to your Podfile:
 
 	pod "SAInboxViewController"
@@ -71,7 +71,7 @@ If you want to present ViewController from rootViewController, implement `func t
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let viewController = SAInboxDetailViewController()
     if let cell = tableView.cellForRow(at: indexPath), let image = headerView.screenshotImage() {
-        SAInboxAnimatedTransitioningController.sharedInstance.configureCotainerView(self, cell: cell, cells: tableView.visibleCells, headerImage: image)
+        SAInboxAnimatedTransitioningController.shared.configureCotainerView(self, cell: cell, cells: tableView.visibleCells, headerImage: image)
     }
     navigationController?.pushViewController(viewController, animated: true)
 }
@@ -81,7 +81,7 @@ Implement `UINavigationControllerDelegate` methods, like this.
 
 ```swift
 func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    return SAInboxAnimatedTransitioningController.sharedInstance.setOperation(operation)
+    return SAInboxAnimatedTransitioningController.shared.setOperation(operation)
 }
 ```
 

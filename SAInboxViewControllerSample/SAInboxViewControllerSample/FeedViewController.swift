@@ -102,7 +102,7 @@ extension FeedViewController {
         }
         
         if let cell = tableView.cellForRow(at: indexPath), let image = headerView.screenshotImage() {
-            SAInboxAnimatedTransitioningController.sharedInstance.configureCotainerView(self, cell: cell, cells: tableView.visibleCells, headerImage: image)
+            SAInboxAnimatedTransitioningController.shared .configureCotainerView(self, cell: cell, cells: tableView.visibleCells, headerImage: image)
         }
         
         let content = contents[(indexPath as NSIndexPath).row]

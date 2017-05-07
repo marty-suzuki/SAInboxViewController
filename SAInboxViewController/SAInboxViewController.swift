@@ -60,7 +60,7 @@ open class SAInboxViewController: UIViewController {
         
         fileprivate func initialization() {
             navigationBar.isTranslucent = false
-            addLayoutSubview(navigationBar, andConstraints:
+            mf.addSubview(navigationBar, andConstraints:
                 navigationBar.top |+| SAInboxViewController.statusBarHeight,
                 navigationBar.left,
                 navigationBar.right,
@@ -97,7 +97,7 @@ open class SAInboxViewController: UIViewController {
     }
     
     //MARK: - Staitc properties
-    open static let appearance = Appearance()
+    public static let appearance = Appearance()
     static let headerViewHeight: CGFloat = 64
     static let statusBarHeight: CGFloat = 20
     
@@ -110,7 +110,7 @@ open class SAInboxViewController: UIViewController {
             headerView.setTitle(title)
         }
     }
-    fileprivate var scrollPosition: CGPoint = CGPoint.zero
+    fileprivate var scrollPosition: CGPoint = .zero
     fileprivate var headerViewHeightConstraint: NSLayoutConstraint?
     open var enabledViewControllerBasedAppearance :Bool = false
     open let appearance = Appearance()
@@ -130,7 +130,7 @@ open class SAInboxViewController: UIViewController {
         }
         
         headerView.applyAppearance(SAInboxViewController.appearance)
-        let constraints = view.addLayoutSubview(headerView, andConstraints:
+        let constraints = view.mf.addSubview(headerView, andConstraints:
             headerView.height |==| SAInboxViewController.headerViewHeight,
             headerView.top,
             headerView.right,
@@ -140,7 +140,7 @@ open class SAInboxViewController: UIViewController {
         headerViewTopSpaceConstraint = constraints.firstAttribute(.top).first
         
         tableView.delegate = self
-        view.addLayoutSubview(tableView, andConstraints:
+        view.mf.addSubview(tableView, andConstraints:
             tableView.top |==| headerView.bottom,
             tableView.left,
             tableView.right,
